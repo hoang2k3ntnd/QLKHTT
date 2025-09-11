@@ -1,0 +1,60 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using OnlineCourse.Attributes;
+using OnlineCourse.Data;
+using OnlineCourse.DTOs;
+using OnlineCourse.Models;
+using OnlineCourse.Models.Constants;
+using OnlineCourse.Models.Entities;
+
+namespace OnlineCourse.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class RoleController : ControllerBase
+    {
+        private readonly AppDbContext _db;
+        public RoleController(AppDbContext db) { _db = db; }
+
+        [HttpGet]
+        [PermissionAuthorize(PermissionConstants.ROLE_VIEW)]
+        public async Task<IActionResult> GetAll()
+        {
+            var roles = await _db.Roles.AsNoTracking().ToListAsync();
+            return Ok(roles.Select(r => new RoleDto { RoleId = r.RoleId, RoleName = r.RoleName }));
+        }
+
+        [HttpPost]
+        [PermissionAuthorize(PermissionConstants.ROLE_CREATE)]
+        public async Task<IActionResult> Create([FromBody] RoleDto dto)
+        {
+            var role = new Role { RoleName = dto.RoleName };
+            _db.Roles.Add(role);
+            await _db.SaveChangesAsync();
+            dto.RoleId = role.RoleId;
+            return Ok(dto);
+        }
+
+        [HttpPut("{id:int}")]
+        [PermissionAuthorize(PermissionConstants.ROLE_UPDATE)]
+        public async Task<IActionResult> Update(int id, [FromBody] RoleDto dto)
+        {
+            var role = await _db.Roles.FindAsync(id);
+            if (role == null) return NotFound();
+            role.RoleName = dto.RoleName;
+            await _db.SaveChangesAsync();
+            return Ok(dto);
+        }
+
+        [HttpDelete("{id:int}")]
+        [PermissionAuthorize(PermissionConstants.ROLE_DELETE)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var role = await _db.Roles.FindAsync(id);
+            if (role == null) return NotFound();
+            _db.Roles.Remove(role);
+            await _db.SaveChangesAsync();
+            return Ok();
+        }
+    }
+}

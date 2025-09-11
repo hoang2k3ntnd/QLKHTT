@@ -1,0 +1,60 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using OnlineCourse.Attributes;
+using OnlineCourse.Data;
+using OnlineCourse.DTOs;
+using OnlineCourse.Models;
+using OnlineCourse.Models.Constants;
+using OnlineCourse.Models.Entities;
+
+namespace OnlineCourse.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class PermissionController : ControllerBase
+    {
+        private readonly AppDbContext _db;
+        public PermissionController(AppDbContext db) { _db = db; }
+
+        [HttpGet]
+        [PermissionAuthorize(PermissionConstants.PERMISSION_VIEW)]
+        public async Task<IActionResult> GetAll()
+        {
+            var list = await _db.Permissions.AsNoTracking().ToListAsync();
+            return Ok(list.Select(p => new PermissionDto { PermissionId = p.PermissionId, PermissionName = p.PermissionName }));
+        }
+
+        [HttpPost]
+        [PermissionAuthorize(PermissionConstants.PERMISSION_CREATE)]
+        public async Task<IActionResult> Create([FromBody] PermissionDto dto)
+        {
+            var p = new Permission { PermissionName = dto.PermissionName };
+            _db.Permissions.Add(p);
+            await _db.SaveChangesAsync();
+            dto.PermissionId = p.PermissionId;
+            return Ok(dto);
+        }
+
+        [HttpPut("{id:int}")]
+        [PermissionAuthorize(PermissionConstants.PERMISSION_UPDATE)]
+        public async Task<IActionResult> Update(int id, [FromBody] PermissionDto dto)
+        {
+            var p = await _db.Permissions.FindAsync(id);
+            if (p == null) return NotFound();
+            p.PermissionName = dto.PermissionName;
+            await _db.SaveChangesAsync();
+            return Ok(dto);
+        }
+
+        [HttpDelete("{id:int}")]
+        [PermissionAuthorize(PermissionConstants.PERMISSION_DELETE)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var p = await _db.Permissions.FindAsync(id);
+            if (p == null) return NotFound();
+            _db.Permissions.Remove(p);
+            await _db.SaveChangesAsync();
+            return Ok();
+        }
+    }
+}

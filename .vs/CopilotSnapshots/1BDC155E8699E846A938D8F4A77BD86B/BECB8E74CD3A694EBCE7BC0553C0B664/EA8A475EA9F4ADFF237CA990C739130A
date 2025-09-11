@@ -1,0 +1,46 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using OnlineCourse.Attributes;
+using OnlineCourse.Data;
+using OnlineCourse.Models;
+using OnlineCourse.Models.Constants;
+using OnlineCourse.Models.Entities;
+
+namespace OnlineCourse.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class UserRolesController : ControllerBase
+    {
+        private readonly AppDbContext _db;
+        public UserRolesController(AppDbContext db) { _db = db; }
+
+        public class AssignRoleRequest { public int UserId { get; set; } public int RoleId { get; set; } }
+
+        [HttpPost("assign")]
+        [PermissionAuthorize(PermissionConstants.USER_UPDATE)]
+        public async Task<IActionResult> AssignRole([FromBody] AssignRoleRequest req)
+        {
+            var exist = await _db.UserRoles.AnyAsync(x => x.UserId == req.UserId && x.RoleId == req.RoleId);
+            if (!exist)
+            {
+                _db.UserRoles.Add(new UserRole { UserId = req.UserId, RoleId = req.RoleId });
+                await _db.SaveChangesAsync();
+            }
+            return Ok();
+        }
+
+        [HttpDelete("remove")]
+        [PermissionAuthorize(PermissionConstants.USER_UPDATE)]
+        public async Task<IActionResult> RemoveRole([FromBody] AssignRoleRequest req)
+        {
+            var ur = await _db.UserRoles.FirstOrDefaultAsync(x => x.UserId == req.UserId && x.RoleId == req.RoleId);
+            if (ur != null)
+            {
+                _db.UserRoles.Remove(ur);
+                await _db.SaveChangesAsync();
+            }
+            return Ok();
+        }
+    }
+}

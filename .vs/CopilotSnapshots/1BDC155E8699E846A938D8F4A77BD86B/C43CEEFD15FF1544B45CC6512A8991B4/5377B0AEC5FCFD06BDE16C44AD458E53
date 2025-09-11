@@ -1,0 +1,65 @@
+﻿namespace OnlineCourse.Models.Constants
+{
+    public static class PermissionConstants
+    {
+        // USER
+        public const string USER_VIEW = "USER_VIEW";
+        public const string USER_CREATE = "USER_CREATE";
+        public const string USER_UPDATE = "USER_UPDATE";
+        public const string USER_DELETE = "USER_DELETE";
+
+        // ROLE
+        public const string ROLE_VIEW = "ROLE_VIEW";
+        public const string ROLE_CREATE = "ROLE_CREATE";
+        public const string ROLE_UPDATE = "ROLE_UPDATE";
+        public const string ROLE_DELETE = "ROLE_DELETE";
+
+        // PERMISSION
+        public const string PERMISSION_VIEW = "PERMISSION_VIEW";
+        public const string PERMISSION_CREATE = "PERMISSION_CREATE";
+        public const string PERMISSION_UPDATE = "PERMISSION_UPDATE";
+        public const string PERMISSION_DELETE = "PERMISSION_DELETE";
+
+        // COURSE
+        public const string COURSE_VIEW = "COURSE_VIEW";
+        public const string COURSE_CREATE = "COURSE_CREATE";
+        public const string COURSE_UPDATE = "COURSE_UPDATE";
+        public const string COURSE_DELETE = "COURSE_DELETE";
+
+        // LESSON
+        public const string LESSON_VIEW = "LESSON_VIEW";
+        public const string LESSON_CREATE = "LESSON_CREATE";
+        public const string LESSON_UPDATE = "LESSON_UPDATE";
+        public const string LESSON_DELETE = "LESSON_DELETE";
+
+        // ENROLLMENT
+        public const string ENROLL_VIEW = "ENROLL_VIEW";
+        public const string ENROLL_CREATE = "ENROLL_CREATE";
+        public const string ENROLL_UPDATE = "ENROLL_UPDATE";
+        public const string ENROLL_DELETE = "ENROLL_DELETE";
+
+        // PAYMENT
+        public const string PAYMENT_VIEW = "PAYMENT_VIEW";
+        public const string PAYMENT_CREATE = "PAYMENT_CREATE";
+        public const string PAYMENT_UPDATE = "PAYMENT_UPDATE";
+        public const string PAYMENT_DELETE = "PAYMENT_DELETE";
+
+        // LOG (Admin)
+        public const string LOG_VIEW = "LOG_VIEW";
+        public const string LOG_CREATE = "LOG_CREATE";  // khi cần ghi log thủ công
+        public const string LOG_DELETE = "LOG_DELETE";
+
+        // tiện lấy tất cả (đăng policy)
+        public static readonly string[] All =
+        {
+            USER_VIEW, USER_CREATE, USER_UPDATE, USER_DELETE,
+            ROLE_VIEW, ROLE_CREATE, ROLE_UPDATE, ROLE_DELETE,
+            PERMISSION_VIEW, PERMISSION_CREATE, PERMISSION_UPDATE, PERMISSION_DELETE,
+            COURSE_VIEW, COURSE_CREATE, COURSE_UPDATE, COURSE_DELETE,
+            LESSON_VIEW, LESSON_CREATE, LESSON_UPDATE, LESSON_DELETE,
+            ENROLL_VIEW, ENROLL_CREATE, ENROLL_UPDATE, ENROLL_DELETE,
+            PAYMENT_VIEW, PAYMENT_CREATE, PAYMENT_UPDATE, PAYMENT_DELETE,
+            LOG_VIEW, LOG_CREATE, LOG_DELETE
+        };
+    }
+}

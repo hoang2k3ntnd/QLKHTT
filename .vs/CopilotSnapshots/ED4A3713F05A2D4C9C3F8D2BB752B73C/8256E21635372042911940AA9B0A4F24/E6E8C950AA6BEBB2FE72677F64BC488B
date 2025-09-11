@@ -1,0 +1,94 @@
+﻿// OnlineCourse/Data/PermissionSeeder.cs
+using OnlineCourse.Models.Entities;
+using OnlineCourse.Models.Constants;
+using Microsoft.EntityFrameworkCore;
+
+
+namespace OnlineCourse.Data
+{
+    public static class PermissionSeeder
+    {
+        public static async Task SeedAsync(AppDbContext context)
+        {
+            if (!await context.Permissions.AnyAsync())
+            {
+                var permissions = new List<Permission>
+                {
+                    new Permission { PermissionName = PermissionConstants.USER_VIEW },
+                    new Permission { PermissionName = PermissionConstants.USER_MANAGE },
+                    new Permission { PermissionName = PermissionConstants.ROLE_VIEW },
+                    new Permission { PermissionName = PermissionConstants.ROLE_CREATE },
+                    new Permission { PermissionName = PermissionConstants.ROLE_UPDATE },
+                    new Permission { PermissionName = PermissionConstants.ROLE_DELETE },
+                    new Permission { PermissionName = PermissionConstants.COURSE_VIEW },
+                    new Permission { PermissionName = PermissionConstants.COURSE_CREATE },
+                    new Permission { PermissionName = PermissionConstants.COURSE_UPDATE },
+                    new Permission { PermissionName = PermissionConstants.COURSE_DELETE },
+                    new Permission { PermissionName = PermissionConstants.LESSON_VIEW },
+                    new Permission { PermissionName = PermissionConstants.LESSON_CREATE },
+                    new Permission { PermissionName = PermissionConstants.LESSON_UPDATE },
+                    new Permission { PermissionName = PermissionConstants.LESSON_DELETE },
+                    new Permission { PermissionName = PermissionConstants.PAYMENT_VIEW },
+                    new Permission { PermissionName = PermissionConstants.PAYMENT_REFUND },
+                    new Permission { PermissionName = PermissionConstants.LOG_VIEW }
+                };
+                await context.Permissions.AddRangeAsync(permissions);
+                await context.SaveChangesAsync();
+            }
+
+            // Gán quyền cho vai trò "Admin" (tất cả quyền)
+            await AssignPermissionsToRoleAsync(context, "Admin", 
+                await context.Permissions.Select(p => p.PermissionName).ToListAsync());
+
+            // Gán quyền cho vai trò "Instructor" (ví dụ: quản lý khóa học và bài học)
+            await AssignPermissionsToRoleAsync(context, "Instructor", new List<string>
+            {
+                PermissionConstants.COURSE_VIEW, 
+                PermissionConstants.COURSE_CREATE, 
+                PermissionConstants.COURSE_UPDATE, 
+                PermissionConstants.COURSE_DELETE,
+                PermissionConstants.LESSON_VIEW, 
+                PermissionConstants.LESSON_CREATE, 
+                PermissionConstants.LESSON_UPDATE, 
+                PermissionConstants.LESSON_DELETE
+            });
+
+            // Gán quyền cho vai trò "Student" (ví dụ: xem khóa học, thanh toán)
+            await AssignPermissionsToRoleAsync(context, "Student", new List<string>
+            {
+                PermissionConstants.COURSE_VIEW, 
+                PermissionConstants.LESSON_VIEW, 
+                PermissionConstants.PAYMENT_VIEW
+            });
+        }
+
+        private static async Task AssignPermissionsToRoleAsync(AppDbContext context, string roleName, List<string> permissionNames)
+        {
+            var role = await context.Roles.FirstOrDefaultAsync(r => r.RoleName == roleName);
+            if (role == null)
+            {
+                role = new Role { RoleName = roleName };
+                await context.Roles.AddAsync(role);
+                await context.SaveChangesAsync();
+            }
+
+            foreach (var permName in permissionNames)
+            {
+                var permission = await context.Permissions
+                    .FirstOrDefaultAsync(p => p.PermissionName == permName);
+                
+                if (permission != null && 
+                    !await context.RolePermissions.AnyAsync(rp => 
+                        rp.RoleId == role.RoleId && rp.PermissionId == permission.PermissionId))
+                {
+                    await context.RolePermissions.AddAsync(new RolePermission 
+                    { 
+                        RoleId = role.RoleId, 
+                        PermissionId = permission.PermissionId 
+                    });
+                }
+            }
+            await context.SaveChangesAsync();
+        }
+    }
+}

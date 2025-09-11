@@ -1,0 +1,73 @@
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using OnlineCourse.Attributes;
+using OnlineCourse.DTOs;
+using OnlineCourse.Models.Constants;
+using OnlineCourse.Models.Entities;
+using OnlineCourse.Repository.Interfaces;
+
+namespace OnlineCourse.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class CourseController : ControllerBase
+    {
+        private readonly ICourseRepository _courseRepo;
+        private readonly IMapper _mapper;
+
+        public CourseController(ICourseRepository courseRepo, IMapper mapper)
+        {
+            _courseRepo = courseRepo;
+            _mapper = mapper;
+        }
+
+        [HttpGet]
+        [PermissionAuthorize(PermissionConstants.COURSE_VIEW)]
+        public async Task<IActionResult> GetAll()
+        {
+            var courses = await _courseRepo.GetAllAsync();
+            return Ok(_mapper.Map<IEnumerable<CourseResponseDto>>(courses));
+        }
+
+        [HttpGet("{id:int}")]
+        [PermissionAuthorize(PermissionConstants.COURSE_VIEW)]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var course = await _courseRepo.GetByIdAsync(id);
+            return Ok(_mapper.Map<CourseResponseDto>(course));
+        }
+
+        [HttpPost]
+        [PermissionAuthorize(PermissionConstants.COURSE_CREATE)]
+        public async Task<IActionResult> Create(CourseRequestDto dto)
+        {
+            var course = _mapper.Map<Course>(dto);
+            course.CreatedAt = DateTime.UtcNow;
+            await _courseRepo.AddAsync(course);
+            return Ok(_mapper.Map<CourseResponseDto>(course));
+        }
+
+        [HttpPut("{id:int}")]
+        [PermissionAuthorize(PermissionConstants.COURSE_UPDATE)]
+        public async Task<IActionResult> Update(int id, CourseRequestDto dto)
+        {
+            var existingCourse = await _courseRepo.GetByIdAsync(id);
+            if (existingCourse == null) return NotFound();
+
+            var course = _mapper.Map<Course>(existingCourse);
+            _mapper.Map(dto, course);
+            await _courseRepo.UpdateAsync(course);
+            return Ok(_mapper.Map<CourseResponseDto>(course));
+        }
+
+        [HttpDelete("{id:int}")]
+        [PermissionAuthorize(PermissionConstants.COURSE_DELETE)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var course = await _courseRepo.GetByIdAsync(id);
+            if (course == null) return NotFound();
+            await _courseRepo.DeleteAsync(id);
+            return NoContent();
+        }
+    }
+}

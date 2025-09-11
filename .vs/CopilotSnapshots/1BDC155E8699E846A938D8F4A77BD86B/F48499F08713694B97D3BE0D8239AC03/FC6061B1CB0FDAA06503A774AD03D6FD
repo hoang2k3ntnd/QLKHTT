@@ -1,0 +1,13 @@
+﻿"ConnectionStrings": {
+  "ConnSQL": "Server=.;Database=OnlineCourse;Trusted_Connection=True;TrustServerCertificate=True"
+} "Logging": {
+  "LogLevel": {
+    "Default": "Information",
+    "Microsoft.AspNetCore": "Warning"
+  }
+}, "AllowedHosts": "*", "Jwt": {
+  "Issuer": "https://yourdomain.com",
+  "Audience": "https://yourdomain.com",
+  "Key": "ThisIsMySuperSecureKeyThatIsAtLeast32BytesLong" // Đảm bảo key đủ mạnh và bảo mật
+} }
+    

@@ -1,0 +1,182 @@
+﻿using AutoMapper;
+using OnlineCourse.DTOs;
+using OnlineCourse.Helpers;
+using OnlineCourse.Models;
+
+using OnlineCourse.Models.Entities;
+using OnlineCourse.Repositories;
+using System.Linq.Expressions;
+
+
+namespace OnlineCourse.Services
+{
+    public class UserService : IUserService
+    {
+        private readonly IUserRepository _userRepository;
+        private readonly IRoleRepository _roleRepository;
+        private readonly ILogRepository _logRepository;
+        private readonly IMapper _mapper;
+
+        public UserService(
+            IUserRepository userRepository,
+            IRoleRepository roleRepository,
+            ILogRepository logRepository,
+            IMapper mapper)
+        {
+            _userRepository = userRepository;
+            _roleRepository = roleRepository;
+            _logRepository = logRepository;
+            _mapper = mapper;
+        }
+
+        public async Task<PagedResult<UserDto>> GetPagedUsersAsync(int page, int pageSize, string searchTerm = null)
+        {
+            // Xây dựng điều kiện tìm kiếm
+            Expression<Func<User, bool>> predicate = user => true;
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                predicate = user => user.UserName.Contains(searchTerm) || user.Email.Contains(searchTerm);
+            }
+
+            // Lấy danh sách phân trang
+            var result = await _userRepository.GetPagedAsync(page, pageSize, predicate);
+            var userDtos = result.Items.Select(async u =>
+            {
+                var dto = _mapper.Map<UserDto>(u);
+                dto.Roles = await _userRepository.GetRolesForUserAsync(u.UserId);
+                return dto;
+            }).Select(t => t.Result);
+
+            return new PagedResult<UserDto>
+            {
+                Items = userDtos,
+                TotalCount = result.TotalCount,
+                Page = result.Page,
+                PageSize = result.PageSize
+            };
+        }
+
+        public async Task<UserDto> GetByIdAsync(int id)
+        {
+            var user = await _userRepository.GetByIdAsync(id);
+            var userDto = _mapper.Map<UserDto>(user);
+            userDto.Roles = await _userRepository.GetRolesForUserAsync(id);
+            return userDto;
+        }
+
+        public async Task<UserDto> CreateAsync(UserCreateDto dto)
+        {
+            // Kiểm tra trùng email và username
+            if (await _userRepository.GetByConditionAsync(u => u.Email == dto.Email).AnyAsync())
+                throw new InvalidOperationException("Email already exists.");
+            if (await _userRepository.GetByConditionAsync(u => u.UserName == dto.UserName).AnyAsync())
+                throw new InvalidOperationException("Username already exists.");
+
+            // Mã hóa mật khẩu
+            PasswordHasher.CreatePasswordHash(dto.Password, out var hash, out var salt);
+
+            // Ánh xạ DTO sang entity
+            var user = _mapper.Map<User>(dto);
+            user.PasswordHash = hash;
+            user.PasswordSalt = salt;
+            user.CreatedAt = DateTime.UtcNow;
+            user.IsActive = true;
+
+            // Thêm user
+            await _userRepository.AddAsync(user);
+
+            // Ghi log hành động tạo user
+            var log = new Log
+            {
+                UserId = user.UserId,
+                Action = "CreateUser",
+                CreatedAt = DateTime.Now,
+                Status = $"User {user.UserName} created with email {user.Email}"
+            };
+            await _logRepository.AddAsync(log);
+
+            // Trả về DTO
+            var userDto = _mapper.Map<UserDto>(user);
+            userDto.Roles = await _userRepository.GetRolesForUserAsync(user.UserId);
+            return userDto;
+        }
+
+        public async Task<UserDto> UpdateAsync(UserUpdateDto dto)
+        {
+            var user = await _userRepository.GetByIdAsync(dto.UserId);
+            _mapper.Map(dto, user);
+            await _userRepository.UpdateAsync(user);
+
+            // Ghi log hành động cập nhật
+            var log = new Log
+            {
+                UserId = user.UserId,
+                Action = "UpdateUser",
+                CreatedAt = DateTime.Now,
+                Status = $"User {user.UserName} updated"
+            };
+            await _logRepository.AddAsync(log);
+
+            var userDto = _mapper.Map<UserDto>(user);
+            userDto.Roles = await _userRepository.GetRolesForUserAsync(user.UserId);
+            return userDto;
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var user = await _userRepository.GetByIdAsync(id);
+
+            // Ghi log hành động xóa
+            var log = new Log
+            {
+                UserId = id,
+                Action = "DeleteUser",
+                CreatedAt = DateTime.Now,
+                Status = $"User {user.UserName} deleted"
+            };
+            await _logRepository.AddAsync(log);
+
+            await _userRepository.DeleteAsync(id);
+        }
+
+        public async Task AssignRoleAsync(int userId, int roleId)
+        {
+            var user = await _userRepository.GetByIdAsync(userId);
+            var role = await _roleRepository.GetByIdAsync(roleId);
+            if (await _userRepository.HasRoleAsync(userId, roleId))
+                throw new InvalidOperationException("User already has this role.");
+
+            await _userRepository.AddUserRoleAsync(new UserRole { UserId = userId, RoleId = roleId });
+
+            // Ghi log hành động gán vai trò
+            var log = new Log
+            {
+                UserId = userId,
+                Action = "AssignRole",
+                CreatedAt = DateTime.Now,
+                Status = $"Role {role.RoleName} assigned to user {user.UserName}"
+            };
+            await _logRepository.AddAsync(log);
+        }
+
+        public async Task RemoveRoleAsync(int userId, int roleId)
+        {
+            var user = await _userRepository.GetByIdAsync(userId);
+            var role = await _roleRepository.GetByIdAsync(roleId);
+            if (!await _userRepository.HasRoleAsync(userId, roleId))
+                throw new InvalidOperationException("User does not have this role.");
+
+            await _userRepository.RemoveUserRoleAsync(userId, roleId);
+
+            // Ghi log hành động xóa vai trò
+            var log = new Log
+            {
+                UserId = userId,
+                Action = "RemoveRole",
+                CreatedAt = DateTime.UtcNow,
+                Status = $"Role {role.RoleName} removed from user {user.UserName}"
+            };
+            await _logRepository.AddAsync(log);
+        }
+    }
+}

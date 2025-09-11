@@ -1,0 +1,102 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using OnlineCourse.Attributes;
+using OnlineCourse.Data;
+using OnlineCourse.DTOs;
+using OnlineCourse.Models;
+using OnlineCourse.Models.Constants;
+using OnlineCourse.Models.Entities;
+using System.Security.Claims;
+
+namespace OnlineCourse.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class LessonController : ControllerBase
+    {
+        private readonly AppDbContext _db;
+        public LessonController(AppDbContext db) { _db = db; }
+
+        [HttpGet("course/{courseId:guid}")]
+        [PermissionAuthorize(PermissionConstants.LESSON_VIEW)]
+        public async Task<IActionResult> GetByCourse(Guid courseId)
+        {
+            var lessons = await _db.Lessons.AsNoTracking().Where(l => l.CourseId == courseId).ToListAsync();
+            return Ok(lessons.Select(l => new LessonDto
+            {
+                LessonId = l.LessonId,
+                CourseId = l.CourseId,
+                Title = l.Title,
+                Content = l.Content,
+                VideoUrl = l.VideoUrl
+            }));
+        }
+
+        [HttpGet("{id:guid}")]
+        [PermissionAuthorize(PermissionConstants.LESSON_VIEW)]
+        public async Task<IActionResult> Get(Guid id)
+        {
+            var l = await _db.Lessons.AsNoTracking().FirstOrDefaultAsync(x => x.LessonId == id);
+            if (l == null) return NotFound();
+            return Ok(new LessonDto
+            {
+                LessonId = l.LessonId,
+                CourseId = l.CourseId,
+                Title = l.Title,
+                Content = l.Content,
+                VideoUrl = l.VideoUrl
+            });
+        }
+
+        [HttpPost]
+        [PermissionAuthorize(PermissionConstants.LESSON_CREATE)]
+        public async Task<IActionResult> Create([FromBody] LessonDto dto)
+        {
+            if (!await _db.Courses.AnyAsync(c => c.CourseId == dto.CourseId))
+                return BadRequest("Course not found");
+
+            var lesson = new Lesson
+            {
+                LessonId = Guid.NewGuid(),
+                CourseId = dto.CourseId,
+                Title = dto.Title,
+                Content = dto.Content,
+                VideoUrl = dto.VideoUrl,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            _db.Lessons.Add(lesson);
+            await _db.SaveChangesAsync();
+
+            dto.LessonId = lesson.LessonId;
+            return Ok(dto);
+        }
+
+        [HttpPut("{id:guid}")]
+        [PermissionAuthorize(PermissionConstants.LESSON_UPDATE)]
+        public async Task<IActionResult> Update(Guid id, [FromBody] LessonDto dto)
+        {
+            var lesson = await _db.Lessons.FindAsync(id);
+            if (lesson == null) return NotFound();
+
+            lesson.Title = dto.Title;
+            lesson.Content = dto.Content;
+            lesson.VideoUrl = dto.VideoUrl;
+            await _db.SaveChangesAsync();
+
+            return Ok(dto);
+        }
+
+        [HttpDelete("{id:guid}")]
+        [PermissionAuthorize(PermissionConstants.LESSON_DELETE)]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var lesson = await _db.Lessons.FindAsync(id);
+            if (lesson == null) return NotFound();
+
+            _db.Lessons.Remove(lesson);
+            await _db.SaveChangesAsync();
+            return Ok();
+        }
+    }
+}

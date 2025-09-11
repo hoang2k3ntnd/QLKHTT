@@ -1,0 +1,125 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using OnlineCourse.Attributes;
+using OnlineCourse.Data;
+using OnlineCourse.DTOs;
+using OnlineCourse.Models;
+using OnlineCourse.Models.Constants;
+using OnlineCourse.Models.Entities;
+using System.Security.Claims;
+
+namespace OnlineCourse.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class CourseController : ControllerBase
+    {
+        private readonly AppDbContext _db;
+        public CourseController(AppDbContext db) { _db = db; }
+
+        [HttpGet]
+        [PermissionAuthorize(PermissionConstants.COURSE_VIEW)]
+        public async Task<IActionResult> GetAll()
+        {
+            var list = await _db.Courses.AsNoTracking().ToListAsync();
+            return Ok(list.Select(c => new CourseResponseDto
+            {
+                CourseId = c.CourseId,
+                Title = c.Title,
+                Description = c.Description,
+                Price = c.Price,
+                CreatedAt = c.CreatedAt,
+                IsPublished = c.IsPublished
+            }));
+        }
+
+        [HttpGet("{id:int}")]
+        [PermissionAuthorize(PermissionConstants.COURSE_VIEW)]
+        public async Task<IActionResult> Get(int id)
+        {
+            var c = await _db.Courses.AsNoTracking().FirstOrDefaultAsync(x => x.CourseId == id);
+            if (c == null) return NotFound();
+            return Ok(new CourseResponseDto
+            {
+                CourseId = c.CourseId,
+                Title = c.Title,
+                Description = c.Description,
+                Price = c.Price,
+                CreatedAt = c.CreatedAt,
+                IsPublished = c.IsPublished
+            });
+        }
+
+        [HttpPost]
+        [PermissionAuthorize(PermissionConstants.COURSE_CREATE)]
+        public async Task<IActionResult> Create([FromBody] CourseRequestDto dto)
+        {
+            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userIdStr == null) return Unauthorized();
+            if (!int.TryParse(userIdStr, out int teacherId)) return Unauthorized();
+
+            var course = new Course
+            {
+                TeacherId = teacherId,
+                Title = dto.Title,
+                Description = dto.Description,
+                Price = dto.Price,
+                IsPublished = dto.IsPublished,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            _db.Courses.Add(course);
+            await _db.SaveChangesAsync();
+
+            return Ok(new CourseResponseDto
+            {
+                CourseId = course.CourseId,
+                Title = course.Title,
+                Description = course.Description,
+                Price = course.Price,
+                CreatedAt = course.CreatedAt,
+                IsPublished = course.IsPublished
+            });
+        }
+
+        [HttpPut("{id:int}")]
+        [PermissionAuthorize(PermissionConstants.COURSE_UPDATE)]
+        public async Task<IActionResult> Update(int id, [FromBody] CourseRequestDto dto)
+        {
+            var course = await _db.Courses.FindAsync(id);
+            if (course == null) return NotFound();
+
+            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userIdStr == null) return Unauthorized();
+            // Nếu cần kiểm tra giáo viên sở hữu khoá học:
+            // if (course.TeacherId != int.Parse(userIdStr)) return Forbid();
+
+            course.Title = dto.Title;
+            course.Description = dto.Description;
+            course.Price = dto.Price;
+            course.IsPublished = dto.IsPublished;
+            await _db.SaveChangesAsync();
+
+            return Ok(new CourseResponseDto
+            {
+                CourseId = course.CourseId,
+                Title = course.Title,
+                Description = course.Description,
+                Price = course.Price,
+                CreatedAt = course.CreatedAt,
+                IsPublished = course.IsPublished
+            });
+        }
+
+        [HttpDelete("{id:int}")]
+        [PermissionAuthorize(PermissionConstants.COURSE_DELETE)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var course = await _db.Courses.FindAsync(id);
+            if (course == null) return NotFound();
+            _db.Courses.Remove(course);
+            await _db.SaveChangesAsync();
+            return Ok();
+        }
+    }
+}

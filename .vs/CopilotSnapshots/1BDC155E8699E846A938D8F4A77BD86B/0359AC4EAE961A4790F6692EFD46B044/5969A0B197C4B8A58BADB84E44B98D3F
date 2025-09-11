@@ -1,0 +1,38 @@
+﻿using Microsoft.EntityFrameworkCore;
+using OnlineCourse.Data;
+
+public class UserAccessRepository : IUserAccessRepository
+{
+    private readonly AppDbContext _context;
+
+    public UserAccessRepository(AppDbContext context)
+    {
+        _context = context;
+    }
+
+    public async Task<ICollection<string>> GetUserRolesAsync(Guid userId)
+    {
+        return await _context.UserRoles
+            .Where(ur => ur.UserId == userId)
+            .Select(ur => ur.Role.Name)
+            .ToListAsync();
+    }
+
+    public async Task<ICollection<string>> GetUserPermissionsAsync(Guid userId)
+    {
+        return await (from ur in _context.UserRoles
+                      join rp in _context.RolePermissions on ur.RoleId equals rp.RoleId
+                      join p in _context.Permissions on rp.PermissionId equals p.Id
+                      where ur.UserId == userId
+                      select p.Code).Distinct().ToListAsync();
+    }
+
+    public async Task<bool> HasPermissionAsync(Guid userId, string permissionCode)
+    {
+        return await (from ur in _context.UserRoles
+                      join rp in _context.RolePermissions on ur.RoleId equals rp.RoleId
+                      join p in _context.Permissions on rp.PermissionId equals p.Id
+                      where ur.UserId == userId && p.Code == permissionCode
+                      select p).AnyAsync();
+    }
+}

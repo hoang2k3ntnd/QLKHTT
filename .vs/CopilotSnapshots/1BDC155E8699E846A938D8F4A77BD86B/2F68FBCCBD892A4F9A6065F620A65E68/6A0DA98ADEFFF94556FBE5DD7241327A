@@ -1,0 +1,112 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using OnlineCourse.Attributes;
+using OnlineCourse.Data;
+using OnlineCourse.DTOs;
+using OnlineCourse.Models;
+using OnlineCourse.Models.Constants;
+using OnlineCourse.Models.Entities;
+using System.Security.Claims;
+
+namespace OnlineCourse.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class LessonController : ControllerBase
+    {
+        private readonly AppDbContext _db;
+        public LessonController(AppDbContext db) { _db = db; }
+
+        [HttpGet("course/{courseId:int}")]
+        [PermissionAuthorize(PermissionConstants.LESSON_VIEW)]
+        public async Task<IActionResult> GetByCourse(int courseId)
+        {
+            var lessons = await _db.Lessons.AsNoTracking().Where(l => l.CourseId == courseId).ToListAsync();
+            return Ok(lessons.Select(l => new LessonDto
+            {
+                LessonId = l.LessonId,
+                CourseId = l.CourseId,
+                Title = l.Title,
+                Content = l.Content,
+                VideoUrl = l.VideoUrl,
+                MaterialUrl = l.MaterialUrl,
+                OrderIndex = l.OrderIndex,
+                CreatedAt = l.CreatedAt
+            }));
+        }
+
+        [HttpGet("{id:int}")]
+        [PermissionAuthorize(PermissionConstants.LESSON_VIEW)]
+        public async Task<IActionResult> Get(int id)
+        {
+            var l = await _db.Lessons.AsNoTracking().FirstOrDefaultAsync(x => x.LessonId == id);
+            if (l == null) return NotFound();
+            return Ok(new LessonDto
+            {
+                LessonId = l.LessonId,
+                CourseId = l.CourseId,
+                Title = l.Title,
+                Content = l.Content,
+                VideoUrl = l.VideoUrl,
+                MaterialUrl = l.MaterialUrl,
+                OrderIndex = l.OrderIndex,
+                CreatedAt = l.CreatedAt
+            });
+        }
+
+        [HttpPost]
+        [PermissionAuthorize(PermissionConstants.LESSON_CREATE)]
+        public async Task<IActionResult> Create([FromBody] LessonDto dto)
+        {
+            if (!await _db.Courses.AnyAsync(c => c.CourseId == dto.CourseId))
+                return BadRequest("Course not found");
+
+            var lesson = new Lesson
+            {
+                // LessonId tự tăng bởi DB
+                CourseId = dto.CourseId,
+                Title = dto.Title,
+                Content = dto.Content,
+                VideoUrl = dto.VideoUrl,
+                MaterialUrl = dto.MaterialUrl,
+                OrderIndex = dto.OrderIndex,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            _db.Lessons.Add(lesson);
+            await _db.SaveChangesAsync();
+
+            dto.LessonId = lesson.LessonId;
+            return Ok(dto);
+        }
+
+        [HttpPut("{id:int}")]
+        [PermissionAuthorize(PermissionConstants.LESSON_UPDATE)]
+        public async Task<IActionResult> Update(int id, [FromBody] LessonDto dto)
+        {
+            var lesson = await _db.Lessons.FindAsync(id);
+            if (lesson == null) return NotFound();
+
+            lesson.Title = dto.Title;
+            lesson.Content = dto.Content;
+            lesson.VideoUrl = dto.VideoUrl;
+            lesson.MaterialUrl = dto.MaterialUrl;
+            lesson.OrderIndex = dto.OrderIndex;
+            await _db.SaveChangesAsync();
+
+            return Ok(dto);
+        }
+
+        [HttpDelete("{id:int}")]
+        [PermissionAuthorize(PermissionConstants.LESSON_DELETE)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var lesson = await _db.Lessons.FindAsync(id);
+            if (lesson == null) return NotFound();
+
+            _db.Lessons.Remove(lesson);
+            await _db.SaveChangesAsync();
+            return Ok();
+        }
+    }
+}

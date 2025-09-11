@@ -1,0 +1,38 @@
+﻿using Microsoft.EntityFrameworkCore;
+using OnlineCourse.Data;
+using OnlineCourse.Models;
+using OnlineCourse.Models.Entities;
+using OnlineCourse.Repository.Interfaces;
+
+namespace OnlineCourse.Repository.Implementations
+{
+    public class UserAccessRepository : IUserAccessRepository
+    {
+        private readonly AppDbContext _context;
+
+        public UserAccessRepository(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<List<Role>> GetUserRolesAsync(int userId)
+        {
+            return await _context.UserRoles
+                .Where(ur => ur.UserId == userId)
+                .Include(ur => ur.Role)
+                .Select(ur => ur.Role)
+                .ToListAsync();
+        }
+
+        public async Task<List<Permission>> GetUserPermissionsAsync(int userId)
+        {
+            return await _context.UserRoles
+                .Where(ur => ur.UserId == userId)
+                .SelectMany(ur => ur.Role.RolePermissions)
+                .Include(rp => rp.Permission)
+                .Select(rp => rp.Permission)
+                .Distinct()
+                .ToListAsync();
+        }
+    }
+}

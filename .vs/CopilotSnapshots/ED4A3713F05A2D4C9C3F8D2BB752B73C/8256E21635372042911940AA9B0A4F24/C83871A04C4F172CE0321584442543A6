@@ -1,0 +1,75 @@
+﻿// OnlineCourse/Data/PermissionSeeder.cs
+using OnlineCourse.Models.Entities;
+
+
+namespace OnlineCourse.Data
+{
+    public static class PermissionSeeder
+    {
+        public static void Seed(AppDbContext context)
+        {
+            if (!context.Permissions.Any())
+            {
+                var permissions = new List<Permission>
+                {
+                    new Permission { PermissionName = Permission.User.View },
+                    new Permission { PermissionName = Permission.User.Manage },
+                    new Permission { PermissionName = Permission.Role.View },
+                    new Permission { PermissionName = Permission.Role.Create },
+                    new Permission { PermissionName = Permission.Role.Edit },
+                    new Permission { PermissionName = Permission.Role.Delete },
+                    new Permission { PermissionName = Permission.Course.View },
+                    new Permission { PermissionName = Permission.Course.Create },
+                    new Permission { PermissionName = Permission.Course.Edit },
+                    new Permission { PermissionName = Permission.Course.Delete },
+                    new Permission { PermissionName = Permission.Lesson.View },
+                    new Permission { PermissionName = Permission.Lesson.Create },
+                    new Permission { PermissionName = Permission.Lesson.Edit },
+                    new Permission { PermissionName = Permission.Lesson.Delete },
+                    new Permission { PermissionName = Permission.Payment.View },
+                    new Permission { PermissionName = Permission.Payment.Refund },
+                    new Permission { PermissionName = Permission.Log.View }
+                };
+                context.Permissions.AddRange(permissions);
+                context.SaveChanges();
+            }
+
+            // Gán quyền cho vai trò "Admin" (tất cả quyền)
+            AssignPermissionsToRole(context, "Admin", context.Permissions.Select(p => p.PermissionName).ToList());
+
+            // Gán quyền cho vai trò "Instructor" (ví dụ: quản lý khóa học và bài học)
+            AssignPermissionsToRole(context, "Instructor", new List<string>
+            {
+                Permission.Course.View, Permission.Course.Create, Permission.Course.Edit, Permission.Course.Delete,
+                Permission.Lesson.View, Permission.Lesson.Create, Permission.Lesson.Edit, Permission.Lesson.Delete
+            });
+
+            // Gán quyền cho vai trò "Student" (ví dụ: xem khóa học, thanh toán)
+            AssignPermissionsToRole(context, "Student", new List<string>
+            {
+                Permission.Course.View, Permission.Lesson.View, Permission.Payment.View
+            });
+        }
+
+        private static void AssignPermissionsToRole(AppDbContext context, string roleName, List<string> permissionNames)
+        {
+            var role = context.Roles.FirstOrDefault(r => r.RoleName == roleName);
+            if (role == null)
+            {
+                role = new Role { RoleName = roleName };
+                context.Roles.Add(role);
+                context.SaveChanges();
+            }
+
+            foreach (var permName in permissionNames)
+            {
+                var permission = context.Permissions.FirstOrDefault(p => p.PermissionName == permName);
+                if (permission != null && !context.RolePermissions.Any(rp => rp.RoleId == role.RoleId && rp.PermissionId == permission.PermissionId))
+                {
+                    context.RolePermissions.Add(new RolePermission { RoleId = role.RoleId, PermissionId = permission.PermissionId });
+                }
+            }
+            context.SaveChanges();
+        }
+    }
+}

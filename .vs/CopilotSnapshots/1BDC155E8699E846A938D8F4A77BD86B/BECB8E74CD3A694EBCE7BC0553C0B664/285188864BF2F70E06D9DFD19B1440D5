@@ -1,0 +1,46 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using OnlineCourse.Attributes;
+using OnlineCourse.Data;
+using OnlineCourse.Models;
+using OnlineCourse.Models.Constants;
+using OnlineCourse.Models.Entities;
+
+namespace OnlineCourse.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class RolePermissionsController : ControllerBase
+    {
+        private readonly AppDbContext _db;
+        public RolePermissionsController(AppDbContext db) { _db = db; }
+
+        public class AssignPermissionRequest { public int RoleId { get; set; } public int PermissionId { get; set; } }
+
+        [HttpPost("assign")]
+        [PermissionAuthorize(PermissionConstants.ROLE_UPDATE)]
+        public async Task<IActionResult> Assign([FromBody] AssignPermissionRequest req)
+        {
+            var exist = await _db.RolePermissions.AnyAsync(x => x.RoleId == req.RoleId && x.PermissionId == req.PermissionId);
+            if (!exist)
+            {
+                _db.RolePermissions.Add(new RolePermission { RoleId = req.RoleId, PermissionId = req.PermissionId });
+                await _db.SaveChangesAsync();
+            }
+            return Ok();
+        }
+
+        [HttpDelete("remove")]
+        [PermissionAuthorize(PermissionConstants.ROLE_UPDATE)]
+        public async Task<IActionResult> Remove([FromBody] AssignPermissionRequest req)
+        {
+            var rp = await _db.RolePermissions.FirstOrDefaultAsync(x => x.RoleId == req.RoleId && x.PermissionId == req.PermissionId);
+            if (rp != null)
+            {
+                _db.RolePermissions.Remove(rp);
+                await _db.SaveChangesAsync();
+            }
+            return Ok();
+        }
+    }
+}

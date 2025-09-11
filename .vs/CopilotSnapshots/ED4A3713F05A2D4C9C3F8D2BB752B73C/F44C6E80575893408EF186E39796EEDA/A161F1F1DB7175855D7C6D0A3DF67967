@@ -1,0 +1,12 @@
+﻿[HttpPut("{id:int}")]
+[PermissionAuthorize(PermissionConstants.COURSE_UPDATE)]
+public async Task<IActionResult> Update(int id, CourseRequestDto dto)
+{
+    var existingCourse = await _courseRepo.GetByIdAsync(id);
+    if (existingCourse == null) return NotFound();
+
+    var course = _mapper.Map<Course>(existingCourse);
+    _mapper.Map(dto, course);
+    await _courseRepo.UpdateAsync(course);
+    return Ok(_mapper.Map<CourseResponseDto>(course));
+}

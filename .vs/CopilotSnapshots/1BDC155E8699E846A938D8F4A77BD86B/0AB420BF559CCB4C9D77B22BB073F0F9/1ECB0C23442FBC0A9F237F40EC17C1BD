@@ -1,0 +1,77 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using OnlineCourse.Data;
+using OnlineCourse.DTOs;
+using OnlineCourse.Models;
+using OnlineCourse.Models.Entities;
+using OnlineCourse.Repository.Interfaces;
+using OnlineCourse.Services;
+
+namespace OnlineCourse.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AuthController : ControllerBase
+    {
+        private readonly AppDbContext _db;
+        private readonly IUserAccessRepository _accessRepo;
+        private readonly TokenService _tokenService;
+
+        public AuthController(AppDbContext db, IUserAccessRepository accessRepo, TokenService tokenService)
+        {
+            _db = db;
+            _accessRepo = accessRepo;
+            _tokenService = tokenService;
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] UserRequestDto dto)
+        {
+            if (await _db.Users.AnyAsync(u => u.UserName == dto.UserName))
+                return BadRequest("Tên đăng nhập đã tồn tại");
+            if (await _db.Users.AnyAsync(u => u.Email == dto.Email))
+                return BadRequest("Email đã tồn tại");
+            if (!await _db.Roles.AnyAsync(r => r.RoleId == dto.RoleId))
+                return BadRequest("Role không hợp lệ");
+
+            var user = new User
+            {
+                UserId = Guid.NewGuid(),
+                UserName = dto.UserName,
+                Email = dto.Email,
+                Password = BCrypt.Net.BCrypt.HashPassword(dto.Password),
+                FullName = dto.FullName,
+                DateOfBirth = dto.DateOfBirth,
+                CreatedAt = DateTime.UtcNow,
+                IsActive = true
+            };
+
+            _db.Users.Add(user);
+            _db.UserRoles.Add(new UserRole { UserId = user.UserId, RoleId = dto.RoleId });
+            await _db.SaveChangesAsync();
+
+            return Ok(new { message = "Đăng ký thành công" });
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginDto dto)
+        {
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.UserName == dto.Username);
+            if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.Password))
+                return Unauthorized("Sai tài khoản hoặc mật khẩu");
+
+            var roles = await _accessRepo.GetUserRolesAsync(user.UserId);
+            var permissions = await _accessRepo.GetUserPermissionsAsync(user.UserId);
+
+            var token = _tokenService.GenerateToken(user, roles, permissions);
+
+            return Ok(new AuthResponseDto
+            {
+                Token = token,
+                Expiration = DateTime.UtcNow.AddMinutes(60),
+                Roles = roles.Select(r => r.RoleName),
+                Permissions = permissions.Select(p => p.PermissionName)
+            });
+        }
+    }
+}
