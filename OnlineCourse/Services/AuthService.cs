@@ -1,195 +1,211 @@
-﻿// Services/AuthService.cs
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using OnlineCourse.Data;
 using OnlineCourse.DTOs;
 using OnlineCourse.Helpers;
 using OnlineCourse.Interfaces;
 using OnlineCourse.Models.Entities;
-using OnlineCourse.Repositories;
 
-namespace OnlineCourse.Services;
-
-public class AuthService : IAuthService
+namespace OnlineCourse.Services
 {
-    private readonly AppDbContext _context;
-    private readonly IConfiguration _config;
-    private readonly IUserRepository _userRepository;
-
-    public AuthService(AppDbContext context, IConfiguration config, IUserRepository userRepository)
+    public class AuthService : IAuthService
     {
-        _context = context;
-        _config = config;
-        _userRepository = userRepository;
-    }
+        private readonly AppDbContext _context;
+        private readonly IConfiguration _configuration;
+        private readonly IEmailService emailService;
 
-    /// <summary>
-    /// Đăng ký user mới
-    /// </summary>
-    public async Task<AuthResponseDto?> RegisterAsync(RegisterDto dto)
-    {
-        if (await _context.Users.AnyAsync(u => u.Email == dto.Email))
-            throw new Exception("Email đã tồn tại");
-
-        var user = new User
+        public AuthService(AppDbContext context, IConfiguration configuration, IEmailService emailService)
         {
-            UserName = dto.UserName,
-            Email = dto.Email,
-            SurName = dto.SurName,
-            NumberPhone = dto.NumberPhone,
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword((dto.Password)),
-            CreatedAt = DateTime.Now,
-            IsActive = true
-        };
-
-        // 🎉 Không gán role mặc định nào khi đăng ký 🎉
-        _context.Users.Add(user);
-        await _context.SaveChangesAsync();
-
-        // Với user mới đăng ký, role mặc định là "Public" và có quyền "Course.View"
-        var roles = new List<string> { "Public" };
-        var permissions = new List<string> { "Course.View" };
-
-        var token = JwtHelper.GenerateJwt(user, roles, permissions, _config);
-
-        // 🎉 Tạo Refresh Token nhưng KHÔNG lưu vào database 🎉
-        var refreshToken = Guid.NewGuid().ToString();
-
-        return new AuthResponseDto
-        {
-            Token = token,
-            RefreshToken = refreshToken,
-            ExpiresAt = DateTime.Now.AddMinutes(Convert.ToDouble(_config["Jwt:expire"])),
-            Roles = roles,
-            Permissions = permissions
-        };
-    }
-
-    /// <summary>
-    /// Đăng nhập user
-    /// </summary>
-    public async Task<AuthResponseDto?> LoginAsync(LoginDto dto)
-    {
-        var user = await _userRepository.GetByEmailAsync(dto.Email);
-
-        if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash!))
-            throw new Exception("Email hoặc mật khẩu không chính xác");
-
-        var roles = await _userRepository.GetRolesForUserAsync(user.UserId);
-        var permissions = await _userRepository.GetPermissionsForUserAsync(user.UserId);
-
-        // Nếu user chưa có role (tức là user mới đăng ký)
-        if (!roles.Any())
-        {
-            roles = new List<string> { "Public" };
-            permissions = new List<string> { "Course.View" };
+            _context = context;
+            _configuration = configuration;
+            this.emailService = emailService;
         }
 
-        var token = JwtHelper.GenerateJwt(user, roles, permissions, _config);
-
-        // 🎉 Tạo Refresh Token nhưng KHÔNG lưu vào database 🎉
-        var refreshToken = Guid.NewGuid().ToString();
-
-        return new AuthResponseDto
+        public async Task<AuthResponseDto?> RegisterAsync(RegisterDto dto)
         {
-            Token = token,
-            RefreshToken = refreshToken,
-            ExpiresAt = DateTime.Now.AddMinutes(Convert.ToDouble(_config["Jwt:expire"])),
-            Roles = roles,
-            Permissions = permissions
-        };
-    }
+            var existingUser = await _context.Users.AnyAsync(u => u.Email == dto.Email);
+            if (existingUser)
+            {
+                return null;
+            }
 
-    /// <summary>
-    /// Đổi mật khẩu
-    /// </summary>
-    public async Task<bool> ChangePasswordAsync(int userId, ChangePasswordDto dto)
-    {
-        var user = await _context.Users.FindAsync(userId);
-        if (user == null) return false;
+            var user = new User
+            {
+                UserName = dto.UserName,
+                Email = dto.Email,
+                SurName = dto.SurName,
+                NumberPhone = dto.NumberPhone,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
+                CreatedAt = DateTime.Now,
+                IsActive = true,
 
-        if (!BCrypt.Net.BCrypt.Verify(dto.OldPassword, user.PasswordHash!))
-            return false;
+            };
 
-        user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.NewPassword);
-        await _context.SaveChangesAsync();
-        return true;
-    }
+            await _context.Users.AddAsync(user);
+            await _context.SaveChangesAsync();
 
-    /// <summary>
-    /// Quên mật khẩu
-    /// </summary>
-    public async Task<bool> ForgotPasswordAsync(ForgotPasswordDto dto)
-    {
-        var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
-        if (user == null) return false;
+            var defaultRole = await _context.Roles.FirstOrDefaultAsync(r => r.RoleName == "User");
+            var userRoles = new List<string>();
+            var userPermissions = new List<string>();
 
-        var token = Guid.NewGuid().ToString();
-        user.PasswordResetToken = BCrypt.Net.BCrypt.HashPassword(token);
-        user.PasswordResetTokenExpiryDate = DateTime.Now.AddHours(2);
-        await _context.SaveChangesAsync();
-        return true;
-    }
+            if (defaultRole != null)
+            {
+                _context.UserRoles.Add(new UserRole { UserId = user.UserId, RoleId = defaultRole.RoleId });
+                await _context.SaveChangesAsync();
+                userRoles.Add(defaultRole.RoleName);
+            }
 
-    /// <summary>
-    /// Đặt lại mật khẩu
-    /// </summary>
-    public async Task<bool> ResetPasswordAsync(ResetPasswordDto dto)
-    {
-        var usersWithToken = await _context.Users.Where(u => u.PasswordResetToken != null).ToListAsync();
-        var user = usersWithToken.FirstOrDefault(u => BCrypt.Net.BCrypt.Verify(dto.Token, u.PasswordResetToken!) && u.PasswordResetTokenExpiryDate > DateTime.Now);
+            var accessToken = JwtHelper.GenerateJwt(user, userRoles, userPermissions, _configuration);
+            var refreshToken = Guid.NewGuid().ToString();
 
-        if (user == null) return false;
+            user.RefreshToken = refreshToken;
+            user.RefreshTokenExpiryTime = DateTime.Now.AddDays(7);
+            await _context.SaveChangesAsync();
 
-        user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.NewPassword);
-        user.PasswordResetToken = null;
-        user.PasswordResetTokenExpiryDate = null;
-        await _context.SaveChangesAsync();
-        return true;
-    }
-
-    /// <summary>
-    /// Refresh Token
-    /// </summary>
-    public async Task<AuthResponseDto?> RefreshTokenAsync(RefreshTokenDto dto)
-    {
-        // Cảnh báo: Cách này không an toàn vì không kiểm tra token trong DB.
-        // Dựa vào yêu cầu của bạn, chỉ tạo token mới và trả về.
-
-        // Bước này giả định token từ client là hợp lệ và không cần kiểm tra trong DB
-        var user = await _context.Users.FirstOrDefaultAsync(); // Đây chỉ là một placeholder
-        if (user == null)
-        {
-            return null; // Hoặc trả về lỗi
+            return new AuthResponseDto
+            {
+                AccessToken = accessToken,
+                ExpiresAt = DateTime.Now.AddMinutes(Convert.ToDouble(_configuration["Jwt:expire"])),
+                RefreshTokenExpiresAt = user.RefreshTokenExpiryTime,
+                Roles = userRoles,
+                Permissions = userPermissions,
+                RefreshToken = refreshToken
+            };
         }
 
-        var roles = await _userRepository.GetRolesForUserAsync(user.UserId);
-        var permissions = await _userRepository.GetPermissionsForUserAsync(user.UserId);
-
-        // Tạo token mới
-        var newAccessToken = JwtHelper.GenerateJwt(user, roles, permissions, _config);
-        var newRefreshToken = Guid.NewGuid().ToString(); // Tạo chuỗi mới
-
-        return new AuthResponseDto
+        public async Task<AuthResponseDto?> LoginAsync(LoginDto dto)
         {
-            Token = newAccessToken,
-            RefreshToken = newRefreshToken, // Trả về refresh token mới cho client
-            ExpiresAt = DateTime.Now.AddMinutes(Convert.ToDouble(_config["Jwt:expire"])),
-            Roles = roles,
-            Permissions = permissions
-        };
-    }
+            var user = await _context.Users
+                .Include(u => u.UserRoles!)
+                .ThenInclude(ur => ur.Role)
+                .ThenInclude(r => r.RolePermissions!)
+                .ThenInclude(rp => rp.Permission)
+                .FirstOrDefaultAsync(u => u.Email == dto.Email);
 
-    /// <summary>
-    /// Xác thực email
-    /// </summary>
-    public async Task<bool> VerifyEmailAsync(EmailVerificationDto dto)
-    {
-        var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == dto.EmailVerification && u.EmailVerificationToken == dto.Token);
-        if (user == null) return false;
+            if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
+            {
+                return null;
+            }
 
-        user.IsEmailVerified = true;
-        user.EmailVerificationToken = null;
-        await _context.SaveChangesAsync();
-        return true;
+            if (!user.IsActive)
+            {
+                return null;
+            }
+
+            var roles = user.UserRoles?.Select(ur => ur.Role.RoleName) ?? Enumerable.Empty<string>();
+            var permissions = user.UserRoles?.SelectMany(ur => ur.Role.RolePermissions.Select(rp => rp.Permission.PermissionName)).Distinct() ?? Enumerable.Empty<string>();
+
+            var accessToken = JwtHelper.GenerateJwt(user, roles, permissions, _configuration);
+            var refreshToken = Guid.NewGuid().ToString();
+
+            user.RefreshToken = refreshToken;
+            user.RefreshTokenExpiryTime = DateTime.Now.AddDays(7);
+            await _context.SaveChangesAsync();
+
+            return new AuthResponseDto
+            {
+                AccessToken = accessToken,
+                ExpiresAt = DateTime.Now.AddMinutes(Convert.ToDouble(_configuration["Jwt:expire"])),
+                RefreshTokenExpiresAt = user.RefreshTokenExpiryTime,
+                Roles = roles,
+                Permissions = permissions,
+                RefreshToken = refreshToken
+            };
+        }
+
+        public async Task<bool> ChangePasswordAsync(int userId, ChangePasswordDto dto)
+        {
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null || !BCrypt.Net.BCrypt.Verify(dto.OldPassword, user.PasswordHash))
+            {
+                return false;
+            }
+
+            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.NewPassword);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> ForgotPasswordAsync(ForgotPasswordDto dto)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
+            if (user == null)
+            {
+                return false;
+            }
+
+            user.PasswordResetToken = Guid.NewGuid().ToString();
+            user.PasswordResetTokenExpiryDate = DateTime.Now.AddHours(1);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> ResetPasswordAsync(ResetPasswordDto dto)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.PasswordResetToken == dto.Token);
+
+            if (user == null || user.PasswordResetTokenExpiryDate <= DateTime.Now)
+            {
+                return false;
+            }
+
+            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.NewPassword);
+            user.PasswordResetToken = null;
+            user.PasswordResetTokenExpiryDate = null;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<AuthResponseDto?> RefreshTokenAsync(RefreshTokenDto dto)
+        {
+            var user = await _context.Users
+                .Include(u => u.UserRoles!)
+                .ThenInclude(ur => ur.Role)
+                .ThenInclude(r => r.RolePermissions!)
+                .ThenInclude(rp => rp.Permission)
+                .FirstOrDefaultAsync(u => u.RefreshToken == dto.RefreshToken);
+
+            if (user == null || user.RefreshTokenExpiryTime <= DateTime.Now)
+            {
+                return null;
+            }
+
+            var roles = user.UserRoles?.Select(ur => ur.Role.RoleName) ?? Enumerable.Empty<string>();
+            var permissions = user.UserRoles?.SelectMany(ur => ur.Role.RolePermissions.Select(rp => rp.Permission.PermissionName)).Distinct() ?? Enumerable.Empty<string>();
+
+            var newAccessToken = JwtHelper.GenerateJwt(user, roles, permissions, _configuration);
+            var newRefreshToken = Guid.NewGuid().ToString();
+
+            user.RefreshToken = newRefreshToken;
+            user.RefreshTokenExpiryTime = DateTime.Now.AddDays(7);
+            await _context.SaveChangesAsync();
+
+            return new AuthResponseDto
+            {
+                AccessToken = newAccessToken,
+                ExpiresAt = DateTime.Now.AddMinutes(Convert.ToDouble(_configuration["Jwt:expire"])),
+                RefreshTokenExpiresAt = user.RefreshTokenExpiryTime,
+                Roles = roles,
+                Permissions = permissions,
+                RefreshToken = newRefreshToken
+            };
+        }
+
+        public async Task<bool> VerifyEmailAsync(EmailVerificationDto dto)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.EmailVerificationToken == dto.Token && u.Email == dto.EmailVerification);
+
+            if (user == null)
+            {
+                return false;
+            }
+
+            user.IsVerified = true;
+
+            user.EmailVerificationToken = null;
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }

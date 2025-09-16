@@ -1,138 +1,206 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\",
+  "WorkspaceRootPath": "E:\\ProjectTTS2\\QLKHTT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\interfaces\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\interfaces\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\dtos\\authdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\dtos\\authdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\dtos\\logdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\dtos\\logdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\data\\permissionseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\data\\permissionseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\helpers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\helpers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\controller\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\controller\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\interfaces\\iuserservie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\interfaces\\iuserservie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\models\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\models\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\models\\entities\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\models\\entities\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\models\\entities\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\models\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\models\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\services\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\services\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\migrations\\20250911071302_khoitaodatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\migrations\\20250911071302_khoitaodatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\controller\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\controller\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\helpers\\jwthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\helpers\\jwthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\dtos\\pagedresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\dtos\\pagedresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\models\\entities\\rolepermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\models\\entities\\rolepermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\models\\entities\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\models\\entities\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\models\\entities\\lesson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\models\\entities\\lesson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\models\\entities\\lesson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\dtos\\logdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\dtos\\logdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\services\\logservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\services\\logservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\interfaces\\ilogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\interfaces\\ilogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\middleware\\requestloggingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\middleware\\requestloggingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\dtos\\authdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\dtos\\authdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\controller\\logcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\controller\\logcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\controller\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\controller\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\interfaces\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\interfaces\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\data\\permissionseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\data\\permissionseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\models\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\models\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\helpers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\helpers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\services\\permissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\services\\permissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\services\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\services\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\repositories\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\repositories\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\repositories\\ipermissionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\repositories\\ipermissionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\repositories\\permissionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\repositories\\permissionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\controller\\permissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\controller\\permissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\controller\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\controller\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\extensions\\authorizationpolicyextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\extensions\\authorizationpolicyextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\helpers\\permissionhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\helpers\\permissionhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\interfaces\\ipermissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\interfaces\\ipermissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\dtos\\permissiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\dtos\\permissiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\dtos\\userpermissiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\dtos\\userpermissiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\interfaces\\iuserservie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\interfaces\\iuserservie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\models\\entities\\rolepermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\models\\entities\\rolepermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\helpers\\jwthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\helpers\\jwthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\dtos\\rolepermissiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\dtos\\rolepermissiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\models\\entities\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\models\\entities\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\models\\entities\\userpermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\models\\entities\\userpermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\dtos\\pagedresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\dtos\\pagedresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\models\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\models\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts\\onlinecourse\\onlinecourse\\onlinecourse\\migrations\\20250911102205_passandemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\migrations\\20250911102205_passandemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|e:\\projecttts2\\qlkhtt\\onlinecourse\\migrations\\20250915095650_khoitaodatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4259591-9858-4770-A00C-858FF1F5A47C}|OnlineCourse\\OnlineCourse.csproj|solutionrelative:onlinecourse\\migrations\\20250915095650_khoitaodatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -142,7 +210,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 352,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -154,400 +222,653 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "20250911102205_PassAndEmail.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Migrations\\20250911102205_PassAndEmail.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Migrations\\20250911102205_PassAndEmail.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Migrations\\20250911102205_PassAndEmail.cs",
-              "RelativeToolTip": "OnlineCourse\\Migrations\\20250911102205_PassAndEmail.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "LogDto.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\DTOs\\LogDto.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\DTOs\\LogDto.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\DTOs\\LogDto.cs",
+              "RelativeToolTip": "OnlineCourse\\DTOs\\LogDto.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwCcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T10:22:05.376Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Program.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Program.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Program.cs",
-              "RelativeToolTip": "OnlineCourse\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T09:12:55.122Z"
+              "WhenOpened": "2025-09-10T08:41:41.235Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Services\\AuthService.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Services\\AuthService.cs",
-              "RelativeToolTip": "OnlineCourse\\Services\\AuthService.cs",
-              "ViewState": "AgIAAHkAAAAAAAAAAAAwwIoAAACeAAAAAAAAAA==",
+              "Title": "Log.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Models\\Entities\\Log.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Models\\Entities\\Log.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Models\\Entities\\Log.cs",
+              "RelativeToolTip": "OnlineCourse\\Models\\Entities\\Log.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T16:35:00.382Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Controller\\AuthController.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Controller\\AuthController.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Controller\\AuthController.cs",
-              "RelativeToolTip": "OnlineCourse\\Controller\\AuthController.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAUwGEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T16:40:18.402Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AuthDto.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\DTOs\\AuthDto.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\DTOs\\AuthDto.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\DTOs\\AuthDto.cs",
-              "RelativeToolTip": "OnlineCourse\\DTOs\\AuthDto.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAADwvy0AAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T08:22:36.944Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IRoleService.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Interfaces\\IRoleService.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Interfaces\\IRoleService.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Interfaces\\IRoleService.cs",
-              "RelativeToolTip": "OnlineCourse\\Interfaces\\IRoleService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T08:30:57.678Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Interfaces\\IAuthService.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Interfaces\\IAuthService.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Interfaces\\IAuthService.cs",
-              "RelativeToolTip": "OnlineCourse\\Interfaces\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T16:30:53.565Z"
+              "WhenOpened": "2025-09-10T16:38:57.48Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Program.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Program.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Program.cs",
+              "RelativeToolTip": "OnlineCourse\\Program.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAACUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T09:12:55.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ILogService.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Interfaces\\ILogService.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Interfaces\\ILogService.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Interfaces\\ILogService.cs",
+              "RelativeToolTip": "OnlineCourse\\Interfaces\\ILogService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T01:13:51.087Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LogService.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Services\\LogService.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Services\\LogService.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Services\\LogService.cs",
+              "RelativeToolTip": "OnlineCourse\\Services\\LogService.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAhwFYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T01:14:18.319Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "User.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Models\\Entities\\User.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Models\\Entities\\User.cs",
               "RelativeDocumentMoniker": "OnlineCourse\\Models\\Entities\\User.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Models\\Entities\\User.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Models\\Entities\\User.cs",
               "RelativeToolTip": "OnlineCourse\\Models\\Entities\\User.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAewBoAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAIAxwB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-10T16:38:34.993Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LogDto.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\DTOs\\LogDto.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\DTOs\\LogDto.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\DTOs\\LogDto.cs",
-              "RelativeToolTip": "OnlineCourse\\DTOs\\LogDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Interfaces\\IAuthService.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Interfaces\\IAuthService.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Interfaces\\IAuthService.cs",
+              "RelativeToolTip": "OnlineCourse\\Interfaces\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T08:41:41.235Z"
+              "WhenOpened": "2025-09-10T16:30:53.565Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PermissionSeeder.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Data\\PermissionSeeder.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Data\\PermissionSeeder.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Data\\PermissionSeeder.cs",
-              "RelativeToolTip": "OnlineCourse\\Data\\PermissionSeeder.cs",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAUwHgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Services\\AuthService.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Services\\AuthService.cs",
+              "RelativeToolTip": "OnlineCourse\\Services\\AuthService.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAqwGcAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T08:22:50.705Z"
+              "WhenOpened": "2025-09-10T16:35:00.382Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Services\\UserService.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Services\\UserService.cs",
-              "RelativeToolTip": "OnlineCourse\\Services\\UserService.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAvwCQAAABUAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\appsettings.json",
+              "RelativeDocumentMoniker": "OnlineCourse\\appsettings.json",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\appsettings.json",
+              "RelativeToolTip": "OnlineCourse\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-10T16:36:37.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Lesson.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Models\\Entities\\Lesson.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Models\\Entities\\Lesson.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Models\\Entities\\Lesson.cs",
+              "RelativeToolTip": "OnlineCourse\\Models\\Entities\\Lesson.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T16:31:45.102Z"
+              "WhenOpened": "2025-09-10T16:38:56.321Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Helpers\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Helpers\\MappingProfile.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Helpers\\MappingProfile.cs",
-              "RelativeToolTip": "OnlineCourse\\Helpers\\MappingProfile.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAmwBsAAABCAAAAAAAAAA==",
+              "Title": "RequestLoggingMiddleware.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Middleware\\RequestLoggingMiddleware.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Middleware\\RequestLoggingMiddleware.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Middleware\\RequestLoggingMiddleware.cs",
+              "RelativeToolTip": "OnlineCourse\\Middleware\\RequestLoggingMiddleware.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAzwBsAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T08:16:35.873Z"
+              "WhenOpened": "2025-09-16T01:15:50.123Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Controller\\UserController.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Controller\\UserController.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Controller\\UserController.cs",
-              "RelativeToolTip": "OnlineCourse\\Controller\\UserController.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAmwHMAAAABAAAAAAAAAA==",
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Data\\AppDbContext.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "OnlineCourse\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAlwFQAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T09:16:49.982Z"
+              "WhenOpened": "2025-09-10T09:26:56.772Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Repositories\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Repositories\\IUserRepository.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Repositories\\IUserRepository.cs",
-              "RelativeToolTip": "OnlineCourse\\Repositories\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAASAAAAAAAAAA==",
+              "Title": "AuthDto.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\DTOs\\AuthDto.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\DTOs\\AuthDto.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\DTOs\\AuthDto.cs",
+              "RelativeToolTip": "OnlineCourse\\DTOs\\AuthDto.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAASwFwAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T08:10:11.658Z"
+              "WhenOpened": "2025-09-11T08:22:36.944Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Repositories\\UserRepository.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "OnlineCourse\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBsAAAAJAAAAAAAAAA==",
+              "Title": "LogController.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Controller\\LogController.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Controller\\LogController.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Controller\\LogController.cs",
+              "RelativeToolTip": "OnlineCourse\\Controller\\LogController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T16:56:47.081Z"
+              "WhenOpened": "2025-09-16T01:16:23.722Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "IUserServie.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Interfaces\\IUserServie.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Interfaces\\IUserServie.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Interfaces\\IUserServie.cs",
-              "RelativeToolTip": "OnlineCourse\\Interfaces\\IUserServie.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAADwvwoAAAAVAAAAAAAAAA==",
+              "Title": "RoleController.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Controller\\RoleController.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Controller\\RoleController.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Controller\\RoleController.cs",
+              "RelativeToolTip": "OnlineCourse\\Controller\\RoleController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T07:12:05.173Z"
+              "WhenOpened": "2025-09-10T08:30:22.63Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "Course.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Models\\Entities\\Course.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Models\\Entities\\Course.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Models\\Entities\\Course.cs",
-              "RelativeToolTip": "OnlineCourse\\Models\\Entities\\Course.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBEAAAAmAAAAAAAAAA==",
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Controller\\AuthController.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Controller\\AuthController.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Controller\\AuthController.cs",
+              "RelativeToolTip": "OnlineCourse\\Controller\\AuthController.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAQwGYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T16:38:11.793Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Log.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Models\\Entities\\Log.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Models\\Entities\\Log.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Models\\Entities\\Log.cs",
-              "RelativeToolTip": "OnlineCourse\\Models\\Entities\\Log.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T16:38:57.48Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "RoleRepository.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Repositories\\RoleRepository.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Repositories\\RoleRepository.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Repositories\\RoleRepository.cs",
-              "RelativeToolTip": "OnlineCourse\\Repositories\\RoleRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T17:03:25.273Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "GenericRepository.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Repositories\\GenericRepository.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Repositories\\GenericRepository.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Repositories\\GenericRepository.cs",
-              "RelativeToolTip": "OnlineCourse\\Repositories\\GenericRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T17:02:52.791Z"
+              "WhenOpened": "2025-09-10T16:40:18.402Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "Role.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Models\\Entities\\Role.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Models\\Entities\\Role.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Models\\Entities\\Role.cs",
-              "RelativeToolTip": "OnlineCourse\\Models\\Entities\\Role.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAkAAAAAAAAAA==",
+              "Title": "Course.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Models\\Entities\\Course.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Models\\Entities\\Course.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Models\\Entities\\Course.cs",
+              "RelativeToolTip": "OnlineCourse\\Models\\Entities\\Course.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBEAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T16:38:16.392Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "RoleService.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Services\\RoleService.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Services\\RoleService.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Services\\RoleService.cs",
-              "RelativeToolTip": "OnlineCourse\\Services\\RoleService.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAgwDAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T08:31:58.497Z"
+              "WhenOpened": "2025-09-10T16:38:11.793Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 21,
-              "Title": "20250911071302_KhoiTaoDatabase.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Migrations\\20250911071302_KhoiTaoDatabase.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Migrations\\20250911071302_KhoiTaoDatabase.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Migrations\\20250911071302_KhoiTaoDatabase.cs",
-              "RelativeToolTip": "OnlineCourse\\Migrations\\20250911071302_KhoiTaoDatabase.cs",
-              "ViewState": "AgIAAJQAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Repositories\\UserRepository.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "OnlineCourse\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAqwBIAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T07:13:02.823Z"
+              "WhenOpened": "2025-09-10T16:56:47.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "PermissionSeeder.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Data\\PermissionSeeder.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Data\\PermissionSeeder.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Data\\PermissionSeeder.cs",
+              "RelativeToolTip": "OnlineCourse\\Data\\PermissionSeeder.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAQwFUAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T08:22:50.705Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Services\\UserService.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Services\\UserService.cs",
+              "RelativeToolTip": "OnlineCourse\\Services\\UserService.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAzwEEAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T16:31:45.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IRoleService.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Interfaces\\IRoleService.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Interfaces\\IRoleService.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Interfaces\\IRoleService.cs",
+              "RelativeToolTip": "OnlineCourse\\Interfaces\\IRoleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T08:30:57.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Helpers\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Helpers\\MappingProfile.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Helpers\\MappingProfile.cs",
+              "RelativeToolTip": "OnlineCourse\\Helpers\\MappingProfile.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwBIAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T08:16:35.873Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 22,
-              "Title": "RoleController.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Controller\\RoleController.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Controller\\RoleController.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Controller\\RoleController.cs",
-              "RelativeToolTip": "OnlineCourse\\Controller\\RoleController.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAYwFIAAAAfAAAAAAAAAA==",
+              "Title": "PermissionService.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Services\\PermissionService.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Services\\PermissionService.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Services\\PermissionService.cs",
+              "RelativeToolTip": "OnlineCourse\\Services\\PermissionService.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAIBJwC4AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T08:30:22.63Z"
+              "WhenOpened": "2025-09-15T08:41:12.94Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 23,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\appsettings.json",
-              "RelativeDocumentMoniker": "OnlineCourse\\appsettings.json",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\appsettings.json",
-              "RelativeToolTip": "OnlineCourse\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-10T16:36:37.933Z"
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Services\\EmailService.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Services\\EmailService.cs",
+              "RelativeToolTip": "OnlineCourse\\Services\\EmailService.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwC0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T10:02:37.008Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 24,
-              "Title": "JwtHelper.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Helpers\\JwtHelper.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Helpers\\JwtHelper.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Helpers\\JwtHelper.cs",
-              "RelativeToolTip": "OnlineCourse\\Helpers\\JwtHelper.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwB0AAABRAAAAAAAAAA==",
+              "Title": "RoleService.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Services\\RoleService.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Services\\RoleService.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Services\\RoleService.cs",
+              "RelativeToolTip": "OnlineCourse\\Services\\RoleService.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAAwH0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T16:30:11.63Z"
+              "WhenOpened": "2025-09-10T08:31:58.497Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 25,
-              "Title": "PagedResultDto.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\DTOs\\PagedResultDto.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\DTOs\\PagedResultDto.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\DTOs\\PagedResultDto.cs",
-              "RelativeToolTip": "OnlineCourse\\DTOs\\PagedResultDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAQwBEAAAABAAAAAAAAAA==",
+              "Title": "IRoleRepository.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Repositories\\IRoleRepository.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Repositories\\IRoleRepository.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Repositories\\IRoleRepository.cs",
+              "RelativeToolTip": "OnlineCourse\\Repositories\\IRoleRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T06:56:32.123Z"
+              "WhenOpened": "2025-09-15T08:38:46.855Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 26,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "OnlineCourse\\Properties\\launchSettings.json",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Properties\\launchSettings.json",
-              "RelativeToolTip": "OnlineCourse\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-10T17:02:26.435Z"
+              "Title": "IPermissionRepository.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Repositories\\IPermissionRepository.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Repositories\\IPermissionRepository.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Repositories\\IPermissionRepository.cs",
+              "RelativeToolTip": "OnlineCourse\\Repositories\\IPermissionRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAUwA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T08:40:16.9Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 27,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Data\\AppDbContext.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "OnlineCourse\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAiwDEAAAAsAAAAAAAAAA==",
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Repositories\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Repositories\\IUserRepository.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Repositories\\IUserRepository.cs",
+              "RelativeToolTip": "OnlineCourse\\Repositories\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T09:26:56.772Z"
+              "WhenOpened": "2025-09-11T08:10:11.658Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 28,
-              "Title": "RolePermission.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Models\\Entities\\RolePermission.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Models\\Entities\\RolePermission.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Models\\Entities\\RolePermission.cs",
-              "RelativeToolTip": "OnlineCourse\\Models\\Entities\\RolePermission.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "PermissionRepository.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Repositories\\PermissionRepository.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Repositories\\PermissionRepository.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Repositories\\PermissionRepository.cs",
+              "RelativeToolTip": "OnlineCourse\\Repositories\\PermissionRepository.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAUwDEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T16:40:05.444Z"
+              "WhenOpened": "2025-09-15T08:40:32.425Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 29,
-              "Title": "UserRole.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Models\\Entities\\UserRole.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Models\\Entities\\UserRole.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Models\\Entities\\UserRole.cs",
-              "RelativeToolTip": "OnlineCourse\\Models\\Entities\\UserRole.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "RoleRepository.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Repositories\\RoleRepository.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Repositories\\RoleRepository.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Repositories\\RoleRepository.cs",
+              "RelativeToolTip": "OnlineCourse\\Repositories\\RoleRepository.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAcwFAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T16:39:09.716Z"
+              "WhenOpened": "2025-09-10T17:03:25.273Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 30,
-              "Title": "Lesson.cs",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Models\\Entities\\Lesson.cs",
-              "RelativeDocumentMoniker": "OnlineCourse\\Models\\Entities\\Lesson.cs",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\Models\\Entities\\Lesson.cs",
-              "RelativeToolTip": "OnlineCourse\\Models\\Entities\\Lesson.cs",
+              "Title": "IEmailService.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Interfaces\\IEmailService.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Interfaces\\IEmailService.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Interfaces\\IEmailService.cs",
+              "RelativeToolTip": "OnlineCourse\\Interfaces\\IEmailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T10:02:05.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "20250915095650_KhoiTaoDatabase.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Migrations\\20250915095650_KhoiTaoDatabase.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Migrations\\20250915095650_KhoiTaoDatabase.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Migrations\\20250915095650_KhoiTaoDatabase.cs",
+              "RelativeToolTip": "OnlineCourse\\Migrations\\20250915095650_KhoiTaoDatabase.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T16:38:56.321Z"
+              "WhenOpened": "2025-09-15T09:56:50.244Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 31,
+              "Title": "PermissionController.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Controller\\PermissionController.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Controller\\PermissionController.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Controller\\PermissionController.cs",
+              "RelativeToolTip": "OnlineCourse\\Controller\\PermissionController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAowBYAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T09:27:09.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Controller\\UserController.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Controller\\UserController.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Controller\\UserController.cs",
+              "RelativeToolTip": "OnlineCourse\\Controller\\UserController.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAAwG0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T09:16:49.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "AuthorizationPolicyExtensions.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Extensions\\AuthorizationPolicyExtensions.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Extensions\\AuthorizationPolicyExtensions.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Extensions\\AuthorizationPolicyExtensions.cs",
+              "RelativeToolTip": "OnlineCourse\\Extensions\\AuthorizationPolicyExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T09:31:44.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "PermissionHelper.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Helpers\\PermissionHelper.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Helpers\\PermissionHelper.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Helpers\\PermissionHelper.cs",
+              "RelativeToolTip": "OnlineCourse\\Helpers\\PermissionHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T09:35:36.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "IPermissionService.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Interfaces\\IPermissionService.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Interfaces\\IPermissionService.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Interfaces\\IPermissionService.cs",
+              "RelativeToolTip": "OnlineCourse\\Interfaces\\IPermissionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T08:40:57.012Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "PermissionDto.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\DTOs\\PermissionDto.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\DTOs\\PermissionDto.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\DTOs\\PermissionDto.cs",
+              "RelativeToolTip": "OnlineCourse\\DTOs\\PermissionDto.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T08:21:15.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "UserPermissionDto.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\DTOs\\UserPermissionDto.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\DTOs\\UserPermissionDto.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\DTOs\\UserPermissionDto.cs",
+              "RelativeToolTip": "OnlineCourse\\DTOs\\UserPermissionDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T08:23:40.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "IUserServie.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Interfaces\\IUserServie.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Interfaces\\IUserServie.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Interfaces\\IUserServie.cs",
+              "RelativeToolTip": "OnlineCourse\\Interfaces\\IUserServie.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T07:12:05.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "RolePermission.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Models\\Entities\\RolePermission.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Models\\Entities\\RolePermission.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Models\\Entities\\RolePermission.cs",
+              "RelativeToolTip": "OnlineCourse\\Models\\Entities\\RolePermission.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T16:40:05.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\DTOs\\UserDto.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\DTOs\\UserDto.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\DTOs\\UserDto.cs",
+              "RelativeToolTip": "OnlineCourse\\DTOs\\UserDto.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAwwDcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T08:18:17.055Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "JwtHelper.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Helpers\\JwtHelper.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Helpers\\JwtHelper.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Helpers\\JwtHelper.cs",
+              "RelativeToolTip": "OnlineCourse\\Helpers\\JwtHelper.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAIBJwCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T16:30:11.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "RolePermissionDto.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\DTOs\\RolePermissionDto.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\DTOs\\RolePermissionDto.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\DTOs\\RolePermissionDto.cs",
+              "RelativeToolTip": "OnlineCourse\\DTOs\\RolePermissionDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T08:22:37.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Models\\Entities\\UserRole.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Models\\Entities\\UserRole.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Models\\Entities\\UserRole.cs",
+              "RelativeToolTip": "OnlineCourse\\Models\\Entities\\UserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T16:39:09.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "UserPermission.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Models\\Entities\\UserPermission.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Models\\Entities\\UserPermission.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Models\\Entities\\UserPermission.cs",
+              "RelativeToolTip": "OnlineCourse\\Models\\Entities\\UserPermission.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T07:38:30.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "PagedResultDto.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\DTOs\\PagedResultDto.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\DTOs\\PagedResultDto.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\DTOs\\PagedResultDto.cs",
+              "RelativeToolTip": "OnlineCourse\\DTOs\\PagedResultDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T06:56:32.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "Role.cs",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Models\\Entities\\Role.cs",
+              "RelativeDocumentMoniker": "OnlineCourse\\Models\\Entities\\Role.cs",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Models\\Entities\\Role.cs",
+              "RelativeToolTip": "OnlineCourse\\Models\\Entities\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T16:38:16.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "OnlineCourse\\Properties\\launchSettings.json",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\Properties\\launchSettings.json",
+              "RelativeToolTip": "OnlineCourse\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-10T17:02:26.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
               "Title": "appsettings.Development.json",
-              "DocumentMoniker": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\appsettings.Development.json",
+              "DocumentMoniker": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\appsettings.Development.json",
               "RelativeDocumentMoniker": "OnlineCourse\\appsettings.Development.json",
-              "ToolTip": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\appsettings.Development.json",
+              "ToolTip": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\appsettings.Development.json",
               "RelativeToolTip": "OnlineCourse\\appsettings.Development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-10T16:36:48.205Z"
+              "WhenOpened": "2025-09-10T16:36:48.205Z",
+              "EditorCaption": ""
             }
           ]
         },

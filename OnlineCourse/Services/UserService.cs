@@ -1,111 +1,147 @@
-﻿using AutoMapper;
-using OnlineCourse.DTOs;
+﻿using OnlineCourse.DTOs;
 using OnlineCourse.Interfaces;
 using OnlineCourse.Models.Entities;
-using OnlineCourse.Repositories;
+
 namespace OnlineCourse.Services
 {
-    /// Service cho User: chỉ nghiệp vụ, không chứa CRUD thô
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        private readonly IRoleRepository _roleRepository;
-        private readonly IMapper _mapper;
 
-        public UserService(IUserRepository userRepository, IRoleRepository roleRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
-            _roleRepository = roleRepository;
-            _mapper = mapper;
         }
-        // Lấy user theo Id
-        public async Task<UserDto?> GetByIdAsync(int id)
-        {
-            var user = await _userRepository.GetByIdAsync(id);
-            if (user == null) return null;
 
-            var dto = _mapper.Map<UserDto>(user);
-            dto.Roles = await _userRepository.GetRolesForUserAsync(user.UserId);
-            return dto;
+        public async Task<IEnumerable<UserDto>> GetAllUsersAsync()
+        {
+            var users = await _userRepository.GetAllAsync();
+            return users.Select(u => new UserDto
+            {
+                UserId = u.UserId,
+                UserName = u.UserName ?? string.Empty,
+                Email = u.Email ?? string.Empty,
+                SurName = u.SurName,
+                NumberPhone = u.NumberPhone,
+                IsActive = u.IsActive,
+                CreatedAt = u.CreatedAt,
+
+                Roles = u.UserRoles?.Select(ur => ur.Role.RoleName) ?? new List<string>()
+            });
         }
-        // Lấy danh sách user có phân trang và tìm kiếm
-        public async Task<PagedResultDto<UserDto>> GetPagedAsync(int page, int pageSize, string? search = null)
+
+        public async Task<UserDto?> GetUserByIdAsync(int userId)
         {
-            var users = await _userRepository.GetPagedAsync(
-                page,
-                pageSize,
-                u => string.IsNullOrEmpty(search) || u.UserName.Contains(search) || u.Email.Contains(search)
-            );
+            var user = await _userRepository.GetByIdAsync(userId);
+            if (user == null)
+            {
+                return null;
+            }
 
-            var totalCount = await _userRepository.CountAsync(
-                u => string.IsNullOrEmpty(search) || u.UserName.Contains(search) || u.Email.Contains(search)
-            );
+            return new UserDto
+            {
+                UserId = user.UserId,
+                UserName = user.UserName ?? string.Empty,
+                Email = user.Email ?? string.Empty,
+                SurName = user.SurName,
+                NumberPhone = user.NumberPhone,
+                IsActive = user.IsActive,
+                CreatedAt = user.CreatedAt,
 
-            var items = _mapper.Map<IEnumerable<UserDto>>(users);
-
-            // Đúng 4 tham số (items, totalCount, page, pageSize)
-            return new PagedResultDto<UserDto>(items, totalCount, page, pageSize);
+                Roles = user.UserRoles?.Select(ur => ur.Role.RoleName) ?? new List<string>()
+            };
         }
-        // Tạo mới user
-        public async Task<UserDto> CreateAsync(UserCreateDto dto)
+
+        public async Task<UserDto> CreateUserAsync(UserCreateDto createDto)
         {
-            var entity = _mapper.Map<User>(dto);
-            entity.CreatedAt = DateTime.Now;
-            entity.IsActive = true;
+            var user = new User
+            {
+                UserName = createDto.UserName,
+                Email = createDto.Email,
+                SurName = createDto.SurName,
+                NumberPhone = createDto.NumberPhone,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(createDto.Password),
+                CreatedAt = DateTime.Now,
+                IsActive = true,
+                IsVerified = false,
 
-            await _userRepository.AddAsync(entity);
+            };
 
-            var userDto = _mapper.Map<UserDto>(entity);
-            userDto.Roles = await _userRepository.GetRolesForUserAsync(entity.UserId);
-            return userDto;
+            await _userRepository.AddAsync(user);
+
+            return new UserDto
+            {
+                UserId = user.UserId,
+                UserName = user.UserName ?? string.Empty,
+                Email = user.Email ?? string.Empty,
+                SurName = user.SurName,
+                NumberPhone = user.NumberPhone,
+                IsActive = user.IsActive,
+                CreatedAt = user.CreatedAt,
+
+            };
         }
-        // Cập nhật user
-        public async Task<UserDto> UpdateAsync(UserUpdateDto dto)
-        {
-            var user = await _userRepository.GetByIdAsync(dto.UserId)
-                       ?? throw new KeyNotFoundException("User not found");
 
-            _mapper.Map(dto, user);
+        public async Task<UserDto?> UpdateUserAsync(UserUpdateDto updateDto)
+        {
+            var user = await _userRepository.GetByIdAsync(updateDto.UserId);
+            if (user == null)
+            {
+                return null;
+            }
+
+            if (updateDto.UserName != null) user.UserName = updateDto.UserName;
+            if (updateDto.Email != null) user.Email = updateDto.Email;
+            if (updateDto.SurName != null) user.SurName = updateDto.SurName;
+            if (updateDto.NumberPhone != null) user.NumberPhone = updateDto.NumberPhone;
+
             await _userRepository.UpdateAsync(user);
 
-            var userDto = _mapper.Map<UserDto>(user);
-            userDto.Roles = await _userRepository.GetRolesForUserAsync(user.UserId);
-            return userDto;
+            return await GetUserByIdAsync(user.UserId);
         }
-        // Xóa user
-        public async Task<bool> DeleteAsync(int id)
-        {
-            var user = await _userRepository.GetByIdAsync(id);
-            if (user == null) return false;
 
-            await _userRepository.DeleteAsync(id);
-            return true;
-        }
-        // Khóa/Mở khóa user
-        public async Task<bool> LockUserAsync(int id, bool IsActive)
+        public async Task<bool> DeleteUserAsync(int userId)
         {
-            var user = await _userRepository.GetByIdAsync(id);
-            if (user == null) return false;
+            var user = await _userRepository.GetByIdAsync(userId);
+            if (user == null)
+            {
+                return false;
+            }
 
-            user.IsActive = IsActive; // Giả sử có thuộc tính IsLocked trong User
-            await _userRepository.UpdateAsync(user);
+            await _userRepository.DeleteAsync(user);
             return true;
         }
 
-        public async Task AssignRoleAsync(int userId, int roleId)
+        public async Task<bool> AssignRoleAsync(int userId, int roleId)
         {
-            var user = await _userRepository.GetByIdAsync(userId)
-                       ?? throw new KeyNotFoundException("User not found");
+            var user = await _userRepository.GetByIdAsync(userId);
+            var userRoleExists = await _userRepository.GetUserRoleAsync(userId, roleId) != null;
 
-            var role = await _roleRepository.GetByIdAsync(roleId)
-                       ?? throw new KeyNotFoundException("Role not found");
+            if (user == null || userRoleExists)
+            {
+                return false;
+            }
 
-            await _userRepository.AddUserRoleAsync(new UserRole { UserId = userId, RoleId = roleId });
+            var userRole = new UserRole
+            {
+                UserId = userId,
+                RoleId = roleId
+            };
+
+            await _userRepository.AddUserRoleAsync(userRole);
+            return true;
         }
 
-        public async Task RemoveRoleAsync(int userId, int roleId)
+        public async Task<bool> RemoveRoleAsync(int userId, int roleId)
         {
-            await _userRepository.RemoveUserRoleAsync(userId, roleId);
+            var userRole = await _userRepository.GetUserRoleAsync(userId, roleId);
+            if (userRole == null)
+            {
+                return false;
+            }
+
+            await _userRepository.RemoveUserRoleAsync(userRole);
+            return true;
         }
     }
 }

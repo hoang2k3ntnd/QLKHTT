@@ -22,7 +22,7 @@ namespace OnlineCourse.Controllers
         // Get User by Id
         public async Task<IActionResult> GetById(int id)
         {
-            var user = await _userService.GetByIdAsync(id);
+            var user = await _userService.GetUserByIdAsync(id);
             if (user == null)
                 return NotFound(ApiResponse.Fail("GetUser", "User not found", 404));
 
@@ -30,20 +30,14 @@ namespace OnlineCourse.Controllers
         }
 
         // Get Paged Users with optional search
-        [HttpGet]
-        [Authorize(Policy = PermissionConstants.User.View)]
-        public async Task<IActionResult> GetPaged([FromQuery] int page = 1, [FromQuery] int pageSize = 10, [FromQuery] string? search = null)
-        {
-            var result = await _userService.GetPagedAsync(page, pageSize, search);
-            return Ok(ApiResponse.Success("GetUsers", "Users retrieved successfully", result, 200));
-        }
+
 
         // Create User
         [HttpPost]
         [Authorize(Policy = PermissionConstants.User.Manage)]
         public async Task<IActionResult> Create(UserCreateDto dto)
         {
-            var user = await _userService.CreateAsync(dto);
+            var user = await _userService.CreateUserAsync(dto);
             return Ok(ApiResponse.Success("CreateUser", "User created successfully", user, 201));
         }
 
@@ -52,7 +46,7 @@ namespace OnlineCourse.Controllers
         [Authorize(Policy = PermissionConstants.User.Manage)]
         public async Task<IActionResult> Update(UserUpdateDto dto)
         {
-            var user = await _userService.UpdateAsync(dto);
+            var user = await _userService.UpdateUserAsync(dto);
             if (user == null)
                 return NotFound(ApiResponse.Fail("UpdateUser", "User not found", 404));
 
@@ -64,7 +58,7 @@ namespace OnlineCourse.Controllers
         [Authorize(Policy = PermissionConstants.User.Manage)]
         public async Task<IActionResult> Delete(int id)
         {
-            var success = await _userService.DeleteAsync(id);
+            var success = await _userService.DeleteUserAsync(id);
             if (!success)
                 return NotFound(ApiResponse.Fail("DeleteUser", "User not found", 404));
 
@@ -79,7 +73,7 @@ namespace OnlineCourse.Controllers
             try
             {
                 await _userService.AssignRoleAsync(userId, roleId);
-                var updatedUser = await _userService.GetByIdAsync(userId); // Lấy lại user để trả về dữ liệu mới
+                var updatedUser = await _userService.GetUserByIdAsync(userId); // Lấy lại user để trả về dữ liệu mới
                 return Ok(ApiResponse.Success("AssignRole", $"Role {roleId} assigned to User {userId}", updatedUser, 200));
             }
             catch (KeyNotFoundException ex)
@@ -100,7 +94,7 @@ namespace OnlineCourse.Controllers
             try
             {
                 await _userService.RemoveRoleAsync(userId, roleId);
-                var updatedUser = await _userService.GetByIdAsync(userId); // Lấy lại user để trả về dữ liệu mới
+                var updatedUser = await _userService.GetUserByIdAsync(userId); // Lấy lại user để trả về dữ liệu mới
                 return Ok(ApiResponse.Success("RemoveRole", $"Role {roleId} removed from User {userId}", updatedUser, 200));
             }
             catch (KeyNotFoundException ex)

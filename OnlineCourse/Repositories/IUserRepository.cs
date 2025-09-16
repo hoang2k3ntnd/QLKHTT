@@ -1,13 +1,17 @@
 ﻿using OnlineCourse.Models.Entities;
 
-namespace OnlineCourse.Repositories
+namespace OnlineCourse.Interfaces
 {
-    public interface IUserRepository : IGenericRepository<User>
+    public interface IUserRepository
     {
+        Task<User?> GetByIdAsync(int id);
+        Task<IEnumerable<User>> GetAllAsync();
+        Task AddAsync(User user);
+        Task UpdateAsync(User user);
+        Task DeleteAsync(User user);
         Task<User?> GetByEmailAsync(string email);
-        Task<IEnumerable<string>> GetRolesForUserAsync(int userId);
-        Task<IEnumerable<string>> GetPermissionsForUserAsync(int userId);
+        Task<UserRole?> GetUserRoleAsync(int userId, int roleId);
         Task AddUserRoleAsync(UserRole userRole);
-        Task RemoveUserRoleAsync(int userId, int roleId);
+        Task RemoveUserRoleAsync(UserRole userRole);
     }
 }

@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿// OnlineCourse/Controllers/RoleController.cs
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using OnlineCourse.Constants;
+using OnlineCourse.Constants; // Re-use the existing constants
 using OnlineCourse.DTOs;
 using OnlineCourse.Helpers;
 using OnlineCourse.Interfaces;
@@ -9,8 +10,7 @@ namespace OnlineCourse.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    // Áp dụng Authorization mặc định cho toàn bộ controller
-    [Authorize]
+    [Authorize] // All endpoints require authentication by default
     public class RoleController : ControllerBase
     {
         private readonly IRoleService _roleService;
@@ -20,67 +20,80 @@ namespace OnlineCourse.Controllers
             _roleService = roleService;
         }
 
-        // Lấy danh sách Role có phân trang và tìm kiếm
         [HttpGet]
         [Authorize(Policy = PermissionConstants.Role.View)]
-        public async Task<IActionResult> GetPaged([FromQuery] int page = 1, [FromQuery] int pageSize = 10, [FromQuery] string? search = null)
+        public async Task<IActionResult> GetAllRoles()
         {
-            var result = await _roleService.GetPagedAsync(page, pageSize, search);
-            return Ok(ApiResponse.Success("GetRoles", "Roles retrieved successfully", result, 200));
+            var roles = await _roleService.GetAllRolesAsync();
+            return Ok(ApiResponse.Success("GetAllRoles", "Roles retrieved successfully", roles, 200));
         }
 
-        // Lấy Role theo Id
         [HttpGet("{id}")]
         [Authorize(Policy = PermissionConstants.Role.View)]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetRoleById(int id)
         {
-            var role = await _roleService.GetByIdAsync(id);
+            var role = await _roleService.GetRoleByIdAsync(id);
             if (role == null)
-                return NotFound(ApiResponse.Fail("GetRole", "Role not found", 404));
-
-            return Ok(ApiResponse.Success("GetRole", "Role retrieved successfully", role, 200));
+            {
+                return NotFound(ApiResponse.Fail("GetRoleById", "Role not found", 404));
+            }
+            return Ok(ApiResponse.Success("GetRoleById", "Role retrieved successfully", role, 200));
         }
 
-        // Tạo mới Role
         [HttpPost]
         [Authorize(Policy = PermissionConstants.Role.Create)]
-        public async Task<IActionResult> Create([FromBody] RoleCreateDto dto)
+        public async Task<IActionResult> CreateRole([FromBody] RoleCreateDto createDto)
         {
-            var newRole = await _roleService.CreateAsync(dto);
-            return CreatedAtAction(nameof(GetById), new { id = newRole.RoleId }, ApiResponse.Success("CreateRole", "Role created successfully", newRole, 201));
+            var createdRole = await _roleService.CreateRoleAsync(createDto);
+            return CreatedAtAction(nameof(GetRoleById), new { id = createdRole.RoleId }, ApiResponse.Success("CreateRole", "Role created successfully", createdRole, 201));
         }
 
-        // Cập nhật Role
-        [HttpPut("{id}")]
+        [HttpPut]
         [Authorize(Policy = PermissionConstants.Role.Edit)]
-        public async Task<IActionResult> Update(int id, [FromBody] RoleUpdateDto dto)
+        public async Task<IActionResult> UpdateRole([FromBody] RoleUpdateDto updateDto)
         {
-            if (id != dto.RoleId)
-            {
-                return BadRequest(ApiResponse.Fail("UpdateRole", "Role ID in URL and body do not match", 400));
-            }
-
-            try
-            {
-                var updatedRole = await _roleService.UpdateAsync(dto);
-                return Ok(ApiResponse.Success("UpdateRole", "Role updated successfully", updatedRole, 200));
-            }
-            catch (KeyNotFoundException)
+            var updatedRole = await _roleService.UpdateRoleAsync(updateDto);
+            if (updatedRole == null)
             {
                 return NotFound(ApiResponse.Fail("UpdateRole", "Role not found", 404));
             }
+            return Ok(ApiResponse.Success("UpdateRole", "Role updated successfully", updatedRole, 200));
         }
 
-        // Xóa Role
         [HttpDelete("{id}")]
         [Authorize(Policy = PermissionConstants.Role.Delete)]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> DeleteRole(int id)
         {
-            var success = await _roleService.DeleteAsync(id);
+            var success = await _roleService.DeleteRoleAsync(id);
             if (!success)
+            {
                 return NotFound(ApiResponse.Fail("DeleteRole", "Role not found", 404));
+            }
+            return Ok(ApiResponse.Success("DeleteRole", "Role deleted successfully", null, 200));
+        }
 
-            return NoContent();
+        [HttpPost("{roleId}/permissions/{permissionId}")]
+        [Authorize(Policy = PermissionConstants.Role.Edit)]
+        public async Task<IActionResult> AddPermissionToRole(int roleId, int permissionId)
+        {
+            var success = await _roleService.AddPermissionAsync(roleId, permissionId);
+            if (!success)
+            {
+                return BadRequest(ApiResponse.Fail("AddPermissionToRole", "Failed to add permission. Either the role/permission does not exist or the permission is already assigned.", 400));
+            }
+            return Ok(ApiResponse.Success("AddPermissionToRole", "Permission added to role successfully", null, 200));
+        }
+
+        [HttpDelete("{roleId}/permissions/{permissionId}")]
+        [Authorize(Policy = PermissionConstants.Role.Edit)]
+        public async Task<IActionResult> RemovePermissionFromRole(int roleId, int permissionId)
+        {
+            var success = await _roleService.RemovePermissionAsync(roleId, permissionId);
+            if (!success)
+            {
+                return NotFound(ApiResponse.Fail("RemovePermissionFromRole", "Failed to remove permission. Relationship not found.", 404));
+            }
+            return Ok(ApiResponse.Success("RemovePermissionFromRole", "Permission removed from role successfully", null, 200));
         }
     }
 }

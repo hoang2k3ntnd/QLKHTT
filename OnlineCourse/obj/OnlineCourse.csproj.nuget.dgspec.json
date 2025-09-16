@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\OnlineCourse.csproj": {}
+    "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\OnlineCourse.csproj": {}
   },
   "projects": {
-    "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\OnlineCourse.csproj": {
+    "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\OnlineCourse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\OnlineCourse.csproj",
+        "projectUniqueName": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\OnlineCourse.csproj",
         "projectName": "OnlineCourse",
-        "projectPath": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\OnlineCourse.csproj",
+        "projectPath": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\OnlineCourse.csproj",
         "packagesPath": "C:\\Users\\black\\.nuget\\packages\\",
-        "outputPath": "E:\\ProjectTTS\\OnlineCourse\\OnlineCourse\\OnlineCourse\\obj\\",
+        "outputPath": "E:\\ProjectTTS2\\QLKHTT\\OnlineCourse\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

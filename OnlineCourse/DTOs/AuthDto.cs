@@ -31,22 +31,19 @@ namespace OnlineCourse.DTOs
         [Required]
         [EmailAddress]
         public string Email { get; set; } = string.Empty;
-
-        public string? UserName { get; set; }
-
         [Required]
         public string Password { get; set; } = string.Empty;
     }
 
     public class AuthResponseDto
     {
-        public string Token { get; set; } = string.Empty;
+        public string AccessToken { get; set; } = string.Empty;
         public DateTime ExpiresAt { get; set; }
 
         public string? RefreshToken { get; set; }
+        public DateTime? RefreshTokenExpiresAt { get; set; } // Thuộc tính đã được thêm
         public IEnumerable<string> Roles { get; set; } = new List<string>();
         public IEnumerable<string> Permissions { get; set; } = new List<string>();
-
 
     }
 
@@ -83,6 +80,7 @@ namespace OnlineCourse.DTOs
     // --------------------
     // Refresh Token
     // --------------------
+    // DTO này có thể được loại bỏ nếu bạn sử dụng cookie
     public class RefreshTokenDto
     {
         [Required]

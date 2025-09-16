@@ -1,0 +1,13 @@
+# Visual Studio files and directories
+.vs/
+[Bb]in/
+[Oo]bj/
+
+# Log files
+*.log
+
+# C# temporary files
+*.pdb
+*.suo
+*.user
+*.bak

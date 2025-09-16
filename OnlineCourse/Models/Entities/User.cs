@@ -21,11 +21,16 @@ namespace OnlineCourse.Models.Entities
         public DateTime CreatedAt { get; set; }
         public bool IsActive { get; set; }
 
+        public bool IsVerified { get; set; }
+
         public string? PasswordResetToken { get; set; }
         public DateTime? PasswordResetTokenExpiryDate { get; set; }
 
         public bool IsEmailVerified { get; set; }
         public string? EmailVerificationToken { get; set; }
+
+        public string? RefreshToken { get; set; }
+        public DateTime? RefreshTokenExpiryTime { get; set; }
 
 
         public ICollection<UserRole>? UserRoles { get; set; }

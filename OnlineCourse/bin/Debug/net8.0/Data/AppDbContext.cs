@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OnlineCourse.Models;
 using OnlineCourse.Models.Entities;
 
 namespace OnlineCourse.Data
@@ -18,6 +19,8 @@ namespace OnlineCourse.Data
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Log> Logs { get; set; }
+
+        public DbSet<UserPermission> UserPermissions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -79,8 +82,17 @@ namespace OnlineCourse.Data
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Logs)
                 .WithOne(l => l.User)
-                .HasForeignKey(l => l.UserId)
+                .HasForeignKey(l => l.UserName)
                 .IsRequired(false);
+
+
+            modelBuilder.Entity<Course>()
+                .Property(c => c.Price)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Payment>()
+                .Property(p => p.Amount)
+                .HasPrecision(18, 2);
 
         }
     }

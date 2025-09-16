@@ -8,6 +8,7 @@ using OnlineCourse.Data.Seeders;
 using OnlineCourse.Extensions;
 using OnlineCourse.Helpers;
 using OnlineCourse.Interfaces;
+using OnlineCourse.Middlewares;
 using OnlineCourse.Repositories;
 using OnlineCourse.Services;
 using System.Text;
@@ -31,6 +32,10 @@ builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
+builder.Services.AddScoped<IPermissionService, PermissionService>();
+builder.Services.AddScoped<IPermissionRepository, PermissionRepository>();
+builder.Services.AddScoped<ILogService, LogService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 builder.Services.AddHttpContextAccessor();
 
@@ -96,6 +101,7 @@ var app = builder.Build();
 // ==========================================================
 // Pipeline
 // ==========================================================
+app.UseRequestLogging();
 
 // Auto migrate + seed dữ liệu mặc định (roles, permissions, admin user)
 using (var scope = app.Services.CreateScope())

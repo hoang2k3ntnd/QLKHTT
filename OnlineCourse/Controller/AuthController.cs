@@ -1,5 +1,4 @@
-﻿// Controllers/AuthController.cs
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnlineCourse.DTOs;
 using OnlineCourse.Helpers;
@@ -8,8 +7,8 @@ using System.Security.Claims;
 
 namespace OnlineCourse.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
@@ -20,79 +19,85 @@ namespace OnlineCourse.Controllers
         }
 
         [HttpPost("register")]
-        [AllowAnonymous]
         public async Task<IActionResult> Register([FromBody] RegisterDto dto)
         {
             var result = await _authService.RegisterAsync(dto);
             if (result == null)
-                return BadRequest(ApiResponse.Fail("Register", "Đăng ký thất bại"));
-            return Ok(ApiResponse.Success("Register", "Đăng ký thành công", result));
+            {
+                return BadRequest(ApiResponse.Fail("Register", "Email đã tồn tại."));
+            }
+            return Ok(ApiResponse.Success("Register", "Đăng ký thành công.", result));
         }
 
         [HttpPost("login")]
-        [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginDto dto)
         {
             var result = await _authService.LoginAsync(dto);
             if (result == null)
-                return Unauthorized(ApiResponse.Fail("Login", "Email hoặc mật khẩu không chính xác", 401));
-            return Ok(ApiResponse.Success("Login", "Đăng nhập thành công", result));
+            {
+                return Unauthorized(ApiResponse.Fail("Login", "Email hoặc mật khẩu không hợp lệ, hoặc tài khoản chưa được xác thực."));
+            }
+            return Ok(ApiResponse.Success("Login", "Đăng nhập thành công.", result));
         }
 
-        [HttpPost("change-password")]
         [Authorize]
+        [HttpPost("change-password")]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto dto)
         {
+            // Lấy UserId từ token của người dùng đã xác thực
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
-            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out var userId))
+            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out int userId))
             {
-                return Unauthorized(ApiResponse.Fail("ChangePassword", "Không tìm thấy user ID trong token.", 401));
+                return Unauthorized(ApiResponse.Fail("ChangePassword", "Người dùng không hợp lệ."));
             }
 
-            var success = await _authService.ChangePasswordAsync(userId, dto);
-            if (!success)
-                return BadRequest(ApiResponse.Fail("ChangePassword", "Mật khẩu cũ không chính xác", 400));
-            return Ok(ApiResponse.Success("ChangePassword", "Mật khẩu đã được đổi thành công"));
+            var result = await _authService.ChangePasswordAsync(userId, dto);
+            if (!result)
+            {
+                return BadRequest(ApiResponse.Fail("ChangePassword", "Mật khẩu cũ không đúng."));
+            }
+            return Ok(ApiResponse.Success("ChangePassword", "Thay đổi mật khẩu thành công."));
         }
 
         [HttpPost("forgot-password")]
-        [AllowAnonymous]
         public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto dto)
         {
-            var success = await _authService.ForgotPasswordAsync(dto);
-            if (!success)
-                return BadRequest(ApiResponse.Fail("ForgotPassword", "Email không tồn tại"));
-            return Ok(ApiResponse.Success("ForgotPassword", "Email đặt lại mật khẩu đã được gửi"));
+            var result = await _authService.ForgotPasswordAsync(dto);
+            // Luôn trả về OK để tránh bị tấn công email enumeration
+            return Ok(ApiResponse.Success("ForgotPassword", "Nếu email của bạn tồn tại trong hệ thống, một liên kết khôi phục mật khẩu sẽ được gửi đến bạn."));
         }
 
         [HttpPost("reset-password")]
-        [AllowAnonymous]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto dto)
         {
-            var success = await _authService.ResetPasswordAsync(dto);
-            if (!success)
-                return BadRequest(ApiResponse.Fail("ResetPassword", "Token không hợp lệ hoặc user không tồn tại"));
-            return Ok(ApiResponse.Success("ResetPassword", "Mật khẩu đã được đặt lại thành công"));
+            var result = await _authService.ResetPasswordAsync(dto);
+            if (!result)
+            {
+                return BadRequest(ApiResponse.Fail("ResetPassword", "Token không hợp lệ hoặc đã hết hạn."));
+            }
+            return Ok(ApiResponse.Success("ResetPassword", "Đặt lại mật khẩu thành công."));
         }
 
         [HttpPost("refresh-token")]
-        [AllowAnonymous]
         public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenDto dto)
         {
             var result = await _authService.RefreshTokenAsync(dto);
             if (result == null)
-                return Unauthorized(ApiResponse.Fail("RefreshToken", "Refresh token không hợp lệ", 401));
-            return Ok(ApiResponse.Success("RefreshToken", "Token mới đã được cấp", result));
+            {
+                return Unauthorized(ApiResponse.Fail("RefreshToken", "Refresh Token không hợp lệ hoặc đã hết hạn."));
+            }
+            return Ok(ApiResponse.Success("RefreshToken", "Token đã được làm mới thành công.", result));
         }
 
         [HttpPost("verify-email")]
-        [AllowAnonymous]
         public async Task<IActionResult> VerifyEmail([FromBody] EmailVerificationDto dto)
         {
-            var success = await _authService.VerifyEmailAsync(dto);
-            if (!success)
-                return BadRequest(ApiResponse.Fail("VerifyEmail", "Token không hợp lệ hoặc đã hết hạn"));
-            return Ok(ApiResponse.Success("VerifyEmail", "Email đã được xác thực"));
+            var result = await _authService.VerifyEmailAsync(dto);
+            if (!result)
+            {
+                return BadRequest(ApiResponse.Fail("VerifyEmail", "Mã xác thực không hợp lệ."));
+            }
+            return Ok(ApiResponse.Success("VerifyEmail", "Xác thực email thành công."));
         }
     }
 }

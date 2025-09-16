@@ -112,41 +112,125 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "OnlineCourse.Controllers.RoleController",
-    "Method": "GetPaged",
-    "RelativePath": "api/Role",
+    "ContainingType": "OnlineCourse.Controllers.LogController",
+    "Method": "GetAll",
+    "RelativePath": "api/Log",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OnlineCourse.Controllers.LogController",
+    "Method": "GetById",
+    "RelativePath": "api/Log/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "page",
+        "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "search",
-        "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "OnlineCourse.Controllers.RoleController",
-    "Method": "Create",
-    "RelativePath": "api/Role",
+    "ContainingType": "OnlineCourse.Controllers.PermissionController",
+    "Method": "GetAllPermissions",
+    "RelativePath": "api/Permission",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OnlineCourse.Controllers.PermissionController",
+    "Method": "CreatePermission",
+    "RelativePath": "api/Permission",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "dto",
+        "Type": "PermissionCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OnlineCourse.Controllers.PermissionController",
+    "Method": "UpdatePermission",
+    "RelativePath": "api/Permission",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "PermissionUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OnlineCourse.Controllers.PermissionController",
+    "Method": "GetPermissionById",
+    "RelativePath": "api/Permission/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OnlineCourse.Controllers.PermissionController",
+    "Method": "DeletePermission",
+    "RelativePath": "api/Permission/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OnlineCourse.Controllers.RoleController",
+    "Method": "GetAllRoles",
+    "RelativePath": "api/Role",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OnlineCourse.Controllers.RoleController",
+    "Method": "CreateRole",
+    "RelativePath": "api/Role",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createDto",
         "Type": "OnlineCourse.DTOs.RoleCreateDto",
         "IsRequired": true
       }
@@ -155,7 +239,23 @@
   },
   {
     "ContainingType": "OnlineCourse.Controllers.RoleController",
-    "Method": "GetById",
+    "Method": "UpdateRole",
+    "RelativePath": "api/Role",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateDto",
+        "Type": "OnlineCourse.DTOs.RoleUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OnlineCourse.Controllers.RoleController",
+    "Method": "GetRoleById",
     "RelativePath": "api/Role/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -171,28 +271,7 @@
   },
   {
     "ContainingType": "OnlineCourse.Controllers.RoleController",
-    "Method": "Update",
-    "RelativePath": "api/Role/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "dto",
-        "Type": "OnlineCourse.DTOs.RoleUpdateDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "OnlineCourse.Controllers.RoleController",
-    "Method": "Delete",
+    "Method": "DeleteRole",
     "RelativePath": "api/Role/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -207,27 +286,43 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "OnlineCourse.Controllers.UserController",
-    "Method": "GetPaged",
-    "RelativePath": "api/User",
-    "HttpMethod": "GET",
+    "ContainingType": "OnlineCourse.Controllers.RoleController",
+    "Method": "AddPermissionToRole",
+    "RelativePath": "api/Role/{roleId}/permissions/{permissionId}",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "page",
+        "Name": "roleId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
-        "Name": "pageSize",
+        "Name": "permissionId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OnlineCourse.Controllers.RoleController",
+    "Method": "RemovePermissionFromRole",
+    "RelativePath": "api/Role/{roleId}/permissions/{permissionId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roleId",
+        "Type": "System.Int32",
+        "IsRequired": true
       },
       {
-        "Name": "search",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "permissionId",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

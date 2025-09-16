@@ -41,6 +41,7 @@ namespace OnlineCourse.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("TeacherId")
@@ -134,25 +135,58 @@ namespace OnlineCourse.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ApplicationName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BrowserInfo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Changes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Comments")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CorrelationId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Details")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("IP")
+                    b.Property<long>("Duration")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Exception")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExtraProperties")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HttpMethod")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Status")
+                    b.Property<string>("IP")
+                        .IsRequired()
+                        .HasMaxLength(45)
+                        .HasColumnType("nvarchar(45)");
+
+                    b.Property<string>("RequestUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("StatusCode")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UserName")
                         .HasColumnType("int");
 
                     b.HasKey("LogId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserName");
 
                     b.ToTable("Logs");
                 });
@@ -166,6 +200,7 @@ namespace OnlineCourse.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentId"));
 
                     b.Property<decimal>("Amount")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -266,6 +301,9 @@ namespace OnlineCourse.Migrations
                     b.Property<bool>("IsEmailVerified")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsVerified")
+                        .HasColumnType("bit");
+
                     b.Property<string>("NumberPhone")
                         .HasMaxLength(11)
                         .HasColumnType("nvarchar(11)");
@@ -279,6 +317,12 @@ namespace OnlineCourse.Migrations
                     b.Property<DateTime?>("PasswordResetTokenExpiryDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("RefreshTokenExpiryTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("SurName")
                         .HasColumnType("nvarchar(max)");
 
@@ -290,6 +334,29 @@ namespace OnlineCourse.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("OnlineCourse.Models.Entities.UserPermission", b =>
+                {
+                    b.Property<int>("UserPermissionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserPermissionId"));
+
+                    b.Property<int>("PermissionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserPermissionId");
+
+                    b.HasIndex("PermissionId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserPermissions");
                 });
 
             modelBuilder.Entity("OnlineCourse.Models.Entities.UserRole", b =>
@@ -341,7 +408,7 @@ namespace OnlineCourse.Migrations
                 {
                     b.HasOne("OnlineCourse.Models.Entities.User", "User")
                         .WithMany("Logs")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserName");
 
                     b.Navigation("User");
                 });
@@ -374,6 +441,25 @@ namespace OnlineCourse.Migrations
                     b.Navigation("Permission");
 
                     b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("OnlineCourse.Models.Entities.UserPermission", b =>
+                {
+                    b.HasOne("OnlineCourse.Models.Entities.Permission", "Permission")
+                        .WithMany()
+                        .HasForeignKey("PermissionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OnlineCourse.Models.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Permission");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("OnlineCourse.Models.Entities.UserRole", b =>
