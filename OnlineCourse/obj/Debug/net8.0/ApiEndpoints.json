@@ -230,7 +230,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "createDto",
+        "Name": "dto",
         "Type": "OnlineCourse.DTOs.RoleCreateDto",
         "IsRequired": true
       }
@@ -246,7 +246,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "updateDto",
+        "Name": "dto",
         "Type": "OnlineCourse.DTOs.RoleUpdateDto",
         "IsRequired": true
       }

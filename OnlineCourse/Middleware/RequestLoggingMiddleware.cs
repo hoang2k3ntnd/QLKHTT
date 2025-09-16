@@ -1,5 +1,4 @@
-﻿using OnlineCourse.Data;
-using OnlineCourse.Models.Entities;
+﻿using OnlineCourse.Interfaces;
 using System.Diagnostics;
 
 namespace OnlineCourse.Middlewares
@@ -8,48 +7,32 @@ namespace OnlineCourse.Middlewares
     {
         private readonly RequestDelegate _next;
 
-        public RequestLoggingMiddleware(RequestDelegate next)
-        {
-            _next = next;
-        }
+        public RequestLoggingMiddleware(RequestDelegate next) => _next = next;
 
-        public async Task Invoke(HttpContext context, AppDbContext db)
+        public async Task InvokeAsync(HttpContext context, ILogService logService)
         {
             var stopwatch = Stopwatch.StartNew();
-            try
-            {
-                await _next(context);
-            }
-            finally
-            {
-                stopwatch.Stop();
-                var log = new Log
-                {
-                    UserName = context.User.Identity?.IsAuthenticated == true
-                        ? int.Parse(context.User.FindFirst("sub")?.Value ?? "0")
-                        : null,
-                    Action = $"{context.Request.Method} {context.Request.Path}",
-                    StatusCode = context.Response.StatusCode,
-                    HttpMethod = context.Request.Method,
-                    RequestUrl = context.Request.Path,
-                    IP = context.Connection.RemoteIpAddress?.ToString() ?? "unknown",
-                    ApplicationName = "OnlineCourse",
-                    BrowserInfo = context.Request.Headers["User-Agent"].ToString(),
-                    CreatedAt = DateTime.Now,
-                    Duration = stopwatch.ElapsedMilliseconds
-                };
 
-                db.Logs.Add(log);
-                await db.SaveChangesAsync();
-            }
+            await _next(context);
+
+            stopwatch.Stop();
+
+            var userName = context.User.Identity?.IsAuthenticated == true
+                ? context.User.Identity.Name
+                : "Anonymous";
+
+            await logService.LogAction(
+                action: $"{context.Request.Method} {context.Request.Path}",
+                details: null,
+
+                statusCode: context.Response.StatusCode
+            );
         }
     }
 
     public static class RequestLoggingMiddlewareExtensions
     {
         public static IApplicationBuilder UseRequestLogging(this IApplicationBuilder builder)
-        {
-            return builder.UseMiddleware<RequestLoggingMiddleware>();
-        }
+            => builder.UseMiddleware<RequestLoggingMiddleware>();
     }
 }

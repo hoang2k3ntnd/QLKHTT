@@ -44,12 +44,12 @@
             // =========================
             // 🔹 Permission
             // =========================
-            //CreateMap<Permission, PermissionDto>()
-            //    .ForMember(dest => dest.PermissionId, opt => opt.MapFrom(src => src.PermissionId))
-            //    .ForMember(dest => dest.PermissionName, opt => opt.MapFrom(src => src.PermissionName));
+            CreateMap<Permission, PermissionDto>()
+                .ForMember(dest => dest.PermissionId, opt => opt.MapFrom(src => src.PermissionId))
+                .ForMember(dest => dest.PermissionName, opt => opt.MapFrom(src => src.PermissionName));
 
-            //CreateMap<PermissionCreateDto, Permission>();
-            //CreateMap<PermissionUpdateDto, Permission>();
+            CreateMap<PermissionCreateDto, Permission>();
+            CreateMap<PermissionUpdateDto, Permission>();
 
 
             // =========================

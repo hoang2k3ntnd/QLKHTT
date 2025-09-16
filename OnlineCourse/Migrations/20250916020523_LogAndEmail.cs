@@ -158,9 +158,9 @@ namespace OnlineCourse.Migrations
                 table: "Logs");
 
             migrationBuilder.RenameColumn(
-                name: "UserName",
+                name: "UserId",
                 table: "Logs",
-                newName: "UserId");
+                newName: "UserName");
 
             migrationBuilder.RenameColumn(
                 name: "ExtraProperties",
@@ -168,9 +168,9 @@ namespace OnlineCourse.Migrations
                 newName: "Status");
 
             migrationBuilder.RenameIndex(
-                name: "IX_Logs_UserName",
+                name: "IX_Logs_UserId",
                 table: "Logs",
-                newName: "IX_Logs_UserId");
+                newName: "IX_Logs_UserName");
 
             migrationBuilder.AlterColumn<string>(
                 name: "IP",

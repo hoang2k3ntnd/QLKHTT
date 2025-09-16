@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -92,6 +91,20 @@ builder.Services.AddSwaggerGen(c =>
                 }
             },
             new string[] {}
+        }
+    });
+
+    // Khai báo schema cho ApiResponse để Swagger không còn báo "Undocumented"
+    c.MapType<ApiResponse>(() => new OpenApiSchema
+    {
+        Type = "object",
+        Properties = new Dictionary<string, OpenApiSchema>
+        {
+            ["statusCode"] = new OpenApiSchema { Type = "integer", Format = "int32" },
+            ["action"] = new OpenApiSchema { Type = "string" },
+            ["message"] = new OpenApiSchema { Type = "string" },
+            ["error"] = new OpenApiSchema { Type = "string" },
+            ["data"] = new OpenApiSchema { Type = "object", AdditionalPropertiesAllowed = true }
         }
     });
 });
